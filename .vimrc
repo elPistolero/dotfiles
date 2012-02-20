@@ -252,9 +252,16 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+let g:miniBufExplUseSingleClick = 1
+nmap <C-e> :MBEbp<CR>
+nmap <C-r> :MBEbn<CR>
 "}}}
 
 "{{{ SuperTab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabDefaultCompletionType = "context"
+"}}}
+
+"{{{ FSwitch
+nmap <C-w> :FSHere<CR>
 "}}}
