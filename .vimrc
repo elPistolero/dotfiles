@@ -246,3 +246,10 @@ au BufNewFile,BufRead *.frag,*.vert,*.geom,*.fp,*.vp,*.glsl SetGLSLFileType
 "{{{ Tagbar
 nmap <F8> :TagbarToggle<CR>
 "}}}
+
+"{{{ MiniBufExplorer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+"}}}
