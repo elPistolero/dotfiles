@@ -212,3 +212,7 @@ function SetGLSLFileType()
 endfunction
 au BufNewFile,BufRead *.frag,*.vert,*.geom,*.fp,*.vp,*.glsl SetGLSLFileType
 "}}}
+
+"{{{ Tagbar
+nmap <F8> :TagbarToggle<CR>
+"}}}
