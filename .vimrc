@@ -45,6 +45,8 @@ set completeopt=menuone,menu,longest,preview
 "}}}
 
 "{{{Misc Settings
+set nocompatible
+
 set wildignore+=*.o,*.obj,*.aux,.git,.svn
 
 " This shows what you are typing as a command.  I love this!
