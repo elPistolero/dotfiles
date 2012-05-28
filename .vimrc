@@ -95,11 +95,6 @@ set ignorecase
 " And so is Artificial Intellegence!
 set smartcase
 
-" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
-inoremap jj <Esc>
-
-nnoremap JJJJ <Nop>
-
 " Incremental searching is sexy
 set incsearch
 
@@ -122,7 +117,7 @@ set showmode
 
 "{{{ Auto Commands
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
@@ -189,10 +184,10 @@ map N Nzz
 map n nzz
 
 " Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
 
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
@@ -265,7 +260,7 @@ let g:SuperTabDefaultCompletionType = "context"
 "}}}
 
 "{{{ FSwitch
-nmap <C-w> :FSHere<CR>
+nmap <C-o> :FSHere<CR>
 "}}}
 
 "{{{ latex suite
@@ -294,4 +289,12 @@ let g:Tex_ViewRule_ps = 'evince'
 let g:Tex_ViewRule_dvi = 'evince'
 
 let g:Tex_DefaultTargetFormat = 'pdf'
+"}}}
+
+"{{{ VimClojure
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
+let vimclojure#NailgunClient = $HOME."/.vim/bundle/VimClojure/lib/nailgun/ng"
+let vimclojure#WantNailgun = 1
+let vimclojure#SplitPos = "right"
 "}}}
