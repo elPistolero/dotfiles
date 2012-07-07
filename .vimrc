@@ -197,8 +197,8 @@ nmap <silent> ,/ :nohlsearch<CR>
 set textwidth=100
 
 " highlight whitespaces
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+"set list
+"set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set t_Co=256
 colorscheme inkpot
