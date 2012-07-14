@@ -19,31 +19,6 @@ filetype plugin on
 set ofu=syntaxcomplete#Complete
 "}}}
 
-"{{{ Cpp Omni completion
-au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
-
-set tags+=~/.vim/bundle/tags/cpp
-set tags+=~/.vim/bundle/tags/gl
-set tags+=~/.vim/bundle/tags/sdl
-set tags+=~/.vim/bundle/tags/qt4
-
-" build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-"}}}
-
 "{{{Misc Settings
 set nocompatible
 
@@ -175,6 +150,9 @@ nnoremap <silent> <End> a <Esc>r
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 
+" Jump to tag
+nnoremap t <C-]>
+
 " Space will toggle folds!
 nnoremap <space> za
 
@@ -241,6 +219,8 @@ au BufNewFile,BufRead *.frag,*.vert,*.geom,*.fp,*.vp,*.glsl SetGLSLFileType
 "}}}
 
 "{{{ Tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_autoshowtag = 1
 nmap <F8> :TagbarToggle<CR>
 "}}}
 
@@ -250,16 +230,14 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
-nmap <C-e> :MBEbp<CR>
-nmap <C-r> :MBEbn<CR>
-"}}}
-
-"{{{ SuperTab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-let g:SuperTabDefaultCompletionType = "context"
+let g:miniBufExplForceSyntaxEnable = 1
+nmap <Tab> :MBEbp<CR>
+nmap <S-Tab> :MBEbn<CR>
 "}}}
 
 "{{{ FSwitch
+au! BufEnter *.{cc,cpp,c} let b:fswitchdst = 'hh,hpp,h' | let b:fswitchlocs = './,../'
+au! BufEnter *.{hh,hpp,h} let b:fswitchdst = 'cc,cpp,c' | let b:fswitchlocs = './,../'
 nmap <C-o> :FSHere<CR>
 "}}}
 
@@ -291,10 +269,20 @@ let g:Tex_ViewRule_dvi = 'evince'
 let g:Tex_DefaultTargetFormat = 'pdf'
 "}}}
 
-"{{{ VimClojure
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
-let vimclojure#NailgunClient = $HOME."/.vim/bundle/VimClojure/lib/nailgun/ng"
-let vimclojure#WantNailgun = 1
-let vimclojure#SplitPos = "right"
+"{{{ clang complete
+let g:clang_library_path = '/usr/lib'
+let g:clang_use_library = 1
+let g:clang_user_options = '2>/dev/null || exit 0'
+let g:clang_complete_auto = 0
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
+"}}}
+
+"{{{ nerdtree
+" open nerdtree if no files are specified
+autocmd vimenter * if !argc() | NERDTree | endif
+" close nerdtree if it is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+nmap <F9> :NERDTreeToggle<CR>
 "}}}
