@@ -286,3 +286,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 nmap <F9> :NERDTreeToggle<CR>
 "}}}
+
+"{{{ supertab
+let g:SuperTabDefaultCompletionType = "context"
+"}}}
