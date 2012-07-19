@@ -224,17 +224,6 @@ let g:tagbar_autoshowtag = 1
 nmap <F8> :TagbarToggle<CR>
 "}}}
 
-"{{{ MiniBufExplorer
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplForceSyntaxEnable = 1
-nmap <Tab> :MBEbp<CR>
-nmap <S-Tab> :MBEbn<CR>
-"}}}
-
 "{{{ FSwitch
 au! BufEnter *.{cc,cpp,c} let b:fswitchdst = 'hh,hpp,h' | let b:fswitchlocs = './,../'
 au! BufEnter *.{hh,hpp,h} let b:fswitchdst = 'cc,cpp,c' | let b:fswitchlocs = './,../'
