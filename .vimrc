@@ -39,8 +39,8 @@ set expandtab
 set smarttab
 
 " Who wants an 8 character tab?  Not me!
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
@@ -259,9 +259,9 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 "}}}
 
 "{{{ clang complete
-let g:clang_library_path = '/usr/lib'
-let g:clang_use_library = 1
-let g:clang_user_options = '2>/dev/null || exit 0'
+"let g:clang_library_path = '/usr/lib'
+"let g:clang_use_library = 1
+"let g:clang_user_options = '2>/dev/null || exit 0'
 let g:clang_complete_auto = 0
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'clang_complete'
@@ -278,4 +278,9 @@ nmap <F9> :NERDTreeToggle<CR>
 
 "{{{ supertab
 let g:SuperTabDefaultCompletionType = "context"
+"}}}
+
+"{{{
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_height = 20
 "}}}
