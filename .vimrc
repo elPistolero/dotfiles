@@ -260,11 +260,13 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 
 "{{{ clang complete
 "let g:clang_library_path = '/usr/lib'
-"let g:clang_use_library = 1
-"let g:clang_user_options = '2>/dev/null || exit 0'
+let g:clang_use_library = 1
+"let g:clang_user_options = '/usr/lib/clang/3.2/include/'
 let g:clang_complete_auto = 0
 let g:clang_snippets = 1
+let g:clang_training_placeholder = 1
 let g:clang_snippets_engine = 'clang_complete'
+let g:clang_auto_user_options = 'path, compile_commands.json'
 "}}}
 
 "{{{ nerdtree
@@ -277,10 +279,11 @@ nmap <F9> :NERDTreeToggle<CR>
 "}}}
 
 "{{{ supertab
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = '<c-x><c-u><c-p>'
+let g:SuperTabDefaultCompletionType = 'context'
 "}}}
 
-"{{{
+"{{{ ctrlp
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 20
 "}}}
