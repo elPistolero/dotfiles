@@ -10,7 +10,7 @@ call pathogen#helptags()
 filetype on
 filetype plugin on
 filetype plugin indent on
-syntax enable
+syntax on
 set grepprg=grep\ -nH\ $*
 " }}}
 
@@ -179,7 +179,7 @@ set textwidth=100
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set t_Co=256
-colorscheme inkpot
+colorscheme zenburn
 
 "Status line gnarliness
 set laststatus=2
