@@ -259,9 +259,8 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 "}}}
 
 "{{{ clang complete
-"let g:clang_library_path = '/usr/lib'
+let g:clang_library_path = '/usr/lib'
 let g:clang_use_library = 1
-"let g:clang_user_options = '/usr/lib/clang/3.2/include/'
 let g:clang_complete_auto = 0
 let g:clang_snippets = 1
 let g:clang_training_placeholder = 1
