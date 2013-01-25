@@ -270,7 +270,7 @@ let g:clang_auto_user_options = 'path, compile_commands.json'
 
 "{{{ nerdtree
 " open nerdtree if no files are specified
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 " close nerdtree if it is the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -285,4 +285,6 @@ let g:SuperTabDefaultCompletionType = 'context'
 "{{{ ctrlp
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_max_height = 20
+let g:ctrlp_extensions = ['line']
+nmap <c-l> :CtrlPLine<cr>
 "}}}
