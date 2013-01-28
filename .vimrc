@@ -288,3 +288,8 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_extensions = ['line']
 nmap <c-l> :CtrlPLine<cr>
 "}}}
+
+"{{{ easytags
+let g:easytags_auto_update = 0
+let g:easytags_include_members = 1
+"}}}
