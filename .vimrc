@@ -290,7 +290,7 @@ nmap <c-l> :CtrlPLine<cr>
 nmap <c-k> :CtrlPTag<cr>
 "}}}
 
-"{{{ easytags
-let g:easytags_auto_update = 0
-let g:easytags_include_members = 1
+"{{{ tags
+" search until we find the tags file
+set tags=./tags;
 "}}}
