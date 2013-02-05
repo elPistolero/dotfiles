@@ -1,14 +1,33 @@
 
-"{{{ Init pathogen
+"{{{ Init vundle
 set nocompatible
-autocmd!
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let vundle manage vundle
+" required
+Bundle 'gmarik/vundle'
+
+" bundles on github
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'bkad/CamelCaseMotion'
+" vim-scripts repos
+" non github repos
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Needed for Syntax Highlighting and stuff
-filetype on
-filetype plugin on
 filetype plugin indent on
 syntax on
 set grepprg=grep\ -nH\ $*
