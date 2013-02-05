@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
 
 " bundles on github
 Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
