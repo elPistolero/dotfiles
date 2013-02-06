@@ -16,12 +16,12 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'fholgado/minibufexpl.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'derekwyatt/vim-fswitch'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
