@@ -22,6 +22,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -311,4 +312,9 @@ nmap <c-k> :CtrlPTag<cr>
 "{{{ tags
 " search until we find the tags file
 set tags=./tags;
+"}}}
+
+"{{{ powerline
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set laststatus=2
 "}}}
