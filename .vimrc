@@ -17,7 +17,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'kien/ctrlp.vim'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
+Bundle 'klen/python-mode'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
@@ -58,8 +59,8 @@ set expandtab
 set smarttab
 
 " Who wants an 8 character tab?  Not me!
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
