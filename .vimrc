@@ -59,8 +59,8 @@ set expandtab
 set smarttab
 
 " Who wants an 8 character tab?  Not me!
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
@@ -192,7 +192,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 "}}}
 
 "{{{ Look and Feel
-set textwidth=100
+set textwidth=80
 
 " highlight whitespaces
 "set list
