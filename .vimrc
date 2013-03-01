@@ -24,6 +24,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'Lokaltog/vim-easymotion'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
