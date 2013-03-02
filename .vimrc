@@ -194,6 +194,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 "{{{ Look and Feel
 set textwidth=80
+set colorcolumn=-0
 
 " highlight whitespaces
 "set list
