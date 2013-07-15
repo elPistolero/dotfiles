@@ -14,20 +14,25 @@ Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
-Bundle 'Rip-Rip/clang_complete'
+Bundle 'scrooloose/syntastic'
+"Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'ervandew/supertab'
+"Bundle 'Rip-Rip/clang_complete'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
 "Bundle 'davidhalter/jedi-vim'
-Bundle 'klen/python-mode'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'bkad/CamelCaseMotion'
+"Bundle 'klen/python-mode'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-repeat'
+"Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'vim-scripts/a.vim'
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Valloric/YouCompleteMe'
 " vim-scripts repos
 " non github repos
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Needed for Syntax Highlighting and stuff
 filetype plugin indent on
@@ -36,8 +41,8 @@ set grepprg=grep\ -nH\ $*
 " }}}
 
 "{{{ Omni completion
-filetype plugin on
-set ofu=syntaxcomplete#Complete
+"filetype plugin on
+"set ofu=syntaxcomplete#Complete
 "}}}
 
 "{{{Misc Settings
@@ -190,6 +195,8 @@ map n nzz
 
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
+
+nmap <silent> ,r :redraw!<CR>
 "}}}
 
 "{{{ Look and Feel
@@ -206,6 +213,8 @@ colorscheme zenburn
 "Status line gnarliness
 set laststatus=2
 set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+
+set encoding=utf-8
 "}}}
 
 "{{{ Paste Toggle
@@ -246,70 +255,17 @@ let g:tagbar_autoshowtag = 1
 nmap <F8> :TagbarToggle<CR>
 "}}}
 
-"{{{ FSwitch
-au! BufEnter *.{cc,cpp,c} let b:fswitchdst = 'hh,hpp,h' | let b:fswitchlocs = './,../'
-au! BufEnter *.{hh,hpp,h} let b:fswitchdst = 'cc,cpp,c' | let b:fswitchlocs = './,../'
-nmap <C-o> :FSHere<CR>
-"}}}
-
-"{{{ latex suite
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-let g:Tex_ViewRule_pdf = 'evince'
-let g:Tex_ViewRule_ps = 'evince'
-let g:Tex_ViewRule_dvi = 'evince'
-
-let g:Tex_DefaultTargetFormat = 'pdf'
-"}}}
-
-"{{{ clang complete
-let g:clang_library_path = '/usr/lib'
-let g:clang_use_library = 1
-let g:clang_complete_auto = 0
-let g:clang_snippets = 1
-let g:clang_training_placeholder = 1
-let g:clang_snippets_engine = 'clang_complete'
-let g:clang_auto_user_options = 'path, compile_commands.json'
-"}}}
-
 "{{{ nerdtree
-" open nerdtree if no files are specified
-"autocmd vimenter * if !argc() | NERDTree | endif
-" close nerdtree if it is the only window left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-nmap <F9> :NERDTreeToggle<CR>
-"}}}
-
-"{{{ supertab
-"let g:SuperTabDefaultCompletionType = '<c-x><c-u><c-p>'
-let g:SuperTabDefaultCompletionType = 'context'
+nmap <F9> :NERDTreeToggle <CR>
 "}}}
 
 "{{{ ctrlp
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_extensions = ['line', 'tag']
+let g:ctrlp_max_height = 40
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_extensions = ['funky', 'line']
 nmap <c-l> :CtrlPLine<cr>
-nmap <c-k> :CtrlPTag<cr>
+nmap <c-k> :CtrlPFunky<cr>
 "}}}
 
 "{{{ tags
@@ -317,7 +273,11 @@ nmap <c-k> :CtrlPTag<cr>
 set tags=./tags;
 "}}}
 
-"{{{ powerline
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-set laststatus=2
+"{{{ YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"}}}
+
+"{{{ FSwitch
+nmap <silent> <leader>o :FSHere<CR>
 "}}}
