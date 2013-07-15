@@ -40,11 +40,6 @@ syntax on
 set grepprg=grep\ -nH\ $*
 " }}}
 
-"{{{ Omni completion
-"filetype plugin on
-"set ofu=syntaxcomplete#Complete
-"}}}
-
 "{{{Misc Settings
 set nocompatible
 
