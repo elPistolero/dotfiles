@@ -51,6 +51,9 @@ set showcmd
 " Folding Stuffs
 set foldmethod=marker
 
+" avoid weird grey bar at the side
+set foldcolumn=0
+
 " Who doesn't like autoindent?
 set autoindent
 set smartindent
