@@ -32,7 +32,7 @@ Bundle 'derekwyatt/vim-fswitch'
 Bundle 'Valloric/YouCompleteMe'
 " vim-scripts repos
 " non github repos
-"Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Needed for Syntax Highlighting and stuff
 filetype plugin indent on
