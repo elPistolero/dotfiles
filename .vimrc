@@ -279,3 +279,8 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "{{{ FSwitch
 nmap <silent> <leader>o :FSHere<CR>
 "}}}
+
+"{{{ vim latex
+let g:tex_flavor='latex'
+set iskeyword+=:
+"}}}
