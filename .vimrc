@@ -264,6 +264,7 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_extensions = ['funky', 'line']
 nmap <c-l> :CtrlPLine<cr>
 nmap <c-k> :CtrlPFunky<cr>
+nmap <c-m> :CtrlPTag<cr>
 "}}}
 
 "{{{ tags
