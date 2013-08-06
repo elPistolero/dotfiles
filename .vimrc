@@ -15,7 +15,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'scrooloose/syntastic'
-"Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'ervandew/supertab'
 "Bundle 'Rip-Rip/clang_complete'
 Bundle 'kien/ctrlp.vim'
@@ -254,7 +254,7 @@ nmap <F8> :TagbarToggle<CR>
 "}}}
 
 "{{{ nerdtree
-nmap <F9> :NERDTreeToggle <CR>
+nmap <F9> :NERDTreeTabsToggle <CR>
 "}}}
 
 "{{{ ctrlp
