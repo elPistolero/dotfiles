@@ -114,6 +114,10 @@ set showmatch
 set showmode
 " }}}
 
+" {{{ paste settings
+set clipboard=unnamedplus
+" }}}
+
 "{{{ Auto Commands
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
