@@ -279,6 +279,8 @@ set tags=./tags;
 "{{{ YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 "}}}
 
 "{{{ FSwitch
