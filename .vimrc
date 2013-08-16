@@ -29,6 +29,7 @@ Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 "Bundle 'Lokaltog/vim-easymotion'
+Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 " vim-scripts repos
 " non github repos
@@ -291,3 +292,8 @@ nmap <silent> <leader>o :FSHere<CR>
 let g:tex_flavor='latex'
 set iskeyword+=:
 "}}}
+
+" {{{ airline
+let g:airline_theme='bubblegum'
+let g:airline_exclude_preview=1
+" }}}
