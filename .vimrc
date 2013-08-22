@@ -256,6 +256,18 @@ au BufNewFile,BufRead *.frag,*.vert,*.geom,*.fp,*.vp,*.glsl SetGLSLFileType
 let g:tagbar_autofocus = 1
 let g:tagbar_autoshowtag = 1
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_tex = {
+      \ 'ctagstype' : 'latex',
+      \ 'kinds'     : [
+      \ 's:sections',
+      \ 'g:graphics:0:0',
+      \ 'l:labels',
+      \ 'r:refs:1:0',
+      \ 'p:pagerefs:1:0'
+      \ ],
+      \ 'sort'    : 0,
+      \ 'deffile' : expand('~/latex.cnf')
+      \ }
 "}}}
 
 "{{{ nerdtree
