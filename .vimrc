@@ -31,6 +31,7 @@ Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'mileszs/ack.vim'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -309,4 +310,8 @@ set iskeyword+=:
 " {{{ airline
 let g:airline_theme='bubblegum'
 let g:airline_exclude_preview=1
+" }}}
+
+" {{{ ack
+nmap <leader>a :Ack
 " }}}
