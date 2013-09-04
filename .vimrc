@@ -310,6 +310,7 @@ set iskeyword+=:
 " {{{ airline
 let g:airline_theme='bubblegum'
 let g:airline_exclude_preview=1
+let g:airline#extensions#tabline#enabled=1
 " }}}
 
 " {{{ ack
