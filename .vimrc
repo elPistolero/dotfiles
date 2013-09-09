@@ -32,6 +32,7 @@ Bundle 'derekwyatt/vim-fswitch'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
+Bundle 'bronson/vim-trailing-whitespace'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
