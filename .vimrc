@@ -24,7 +24,7 @@ Bundle 'tacahiroy/ctrlp-funky'
 "Bundle 'klen/python-mode'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-repeat'
-"Bundle 'bkad/CamelCaseMotion'
+Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -317,3 +317,9 @@ let g:airline#extensions#tabline#enabled=1
 " {{{ ack
 nmap <leader>a :Ack
 " }}}
+
+"{{{ Camel Case Motion
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
+"}}}
