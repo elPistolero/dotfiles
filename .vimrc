@@ -28,7 +28,7 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
