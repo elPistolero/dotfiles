@@ -33,6 +33,7 @@ Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'vim-scripts/YankRing.vim'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -202,6 +203,10 @@ map n nzz
 nmap <silent> ,/ :nohlsearch<CR>
 
 nmap <silent> ,r :redraw!<CR>
+
+" Make shift-insert work like in xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
 "}}}
 
 "{{{ Look and Feel
@@ -322,4 +327,10 @@ nmap <leader>a :Ack
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
+"}}}
+
+"{{{ YankRing
+nnoremap <silent> <leader>y :YRShow<CR>
+let g:yankring_replace_n_pkey = '<leader>p'
+let g:yankring_replace_n_nkey = '<leader>n'
 "}}}
