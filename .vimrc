@@ -207,6 +207,19 @@ nmap <silent> ,r :redraw!<CR>
 " Make shift-insert work like in xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
+
+" move mappings
+" Normal mode
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+
+" Insert mode
+inoremap <C-j> <ESC>:m .+1<CR>==gi
+inoremap <C-k> <ESC>:m .-2<CR>==gi
+
+" Visual mode
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 "}}}
 
 "{{{ Look and Feel
@@ -287,7 +300,7 @@ let g:ctrlp_max_height = 40
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_extensions = ['funky', 'line']
 nmap <c-l> :CtrlPLine<cr>
-nmap <c-k> :CtrlPFunky<cr>
+nmap <c-h> :CtrlPFunky<cr>
 nmap <c-m> :CtrlPTag<cr>
 nmap <c-b> :CtrlPBuffer<cr>
 "}}}
@@ -311,6 +324,8 @@ nmap <silent> <leader>o :FSHere<CR>
 "{{{ vim latex
 let g:tex_flavor='latex'
 set iskeyword+=:
+imap <C-space> <Plug>IMAP_JumpForward
+nmap <C-space> <Plug>IMAP_JumpForward
 "}}}
 
 " {{{ airline
