@@ -34,9 +34,6 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-" possible terminal keys fix
-Bundle 'nacitar/terminalkeys.vim'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -351,8 +348,4 @@ map <leader>e <Plug>CamelCaseMotion_e
 nnoremap <silent> <leader>y :YRShow<CR>
 let g:yankring_replace_n_pkey = '<leader>p'
 let g:yankring_replace_n_nkey = '<leader>n'
-"}}}
-
-"{{{ tmux related
-set t_ut=
 "}}}
