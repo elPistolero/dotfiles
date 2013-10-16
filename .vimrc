@@ -34,6 +34,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/YankRing.vim'
+Bundle 'sjl/gundo.vim'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -174,10 +175,6 @@ nnoremap <silent> j gj
 inoremap <silent> <Up> <Esc>gka
 inoremap <silent> <Down> <Esc>gja
 
-" Good call Benjie (r for i)
-nnoremap <silent> <Home> i <Esc>r
-nnoremap <silent> <End> a <Esc>r
-
 " Create Blank Newlines and stay in Normal mode
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
@@ -204,10 +201,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 nmap <silent> ,r :redraw!<CR>
 
-" Make shift-insert work like in xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
-
 " move mappings
 " Normal mode
 nnoremap <C-j> :m .+1<CR>==
@@ -220,6 +213,9 @@ inoremap <C-k> <ESC>:m .-2<CR>==gi
 " Visual mode
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" repeat operator in visual mode
+vnoremap . :normal .<CR>
 "}}}
 
 "{{{ Look and Feel
@@ -348,4 +344,8 @@ map <leader>e <Plug>CamelCaseMotion_e
 nnoremap <silent> <leader>y :YRShow<CR>
 let g:yankring_replace_n_pkey = '<leader>p'
 let g:yankring_replace_n_nkey = '<leader>n'
+"}}}
+
+"{{{ Gundo
+nnoremap <F5> :GundoToggle<CR>
 "}}}
