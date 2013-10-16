@@ -35,6 +35,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'nelstrom/vim-visual-star-search'
 " vim-scripts repos
 " non github repos
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
