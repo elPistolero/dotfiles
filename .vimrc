@@ -36,9 +36,10 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " vim-scripts repos
 " non github repos
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " Needed for Syntax Highlighting and stuff
 filetype plugin indent on
