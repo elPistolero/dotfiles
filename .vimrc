@@ -18,22 +18,24 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'ervandew/supertab'
 "Bundle 'Rip-Rip/clang_complete'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
+"Bundle 'kien/ctrlp.vim'
+"Bundle 'tacahiroy/ctrlp-funky'
 "Bundle 'davidhalter/jedi-vim'
 "Bundle 'klen/python-mode'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
+"Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -184,9 +186,6 @@ nnoremap <silent> zk O<Esc>
 " Jump to tag
 nnoremap t <C-]>
 
-" Space will toggle folds!
-nnoremap <space> za
-
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
@@ -292,17 +291,6 @@ let g:tagbar_type_tex = {
 nmap <F9> :NERDTreeTabsToggle <CR>
 "}}}
 
-"{{{ ctrlp
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_height = 40
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_extensions = ['funky', 'line']
-nmap <c-l> :CtrlPLine<cr>
-nmap <c-h> :CtrlPFunky<cr>
-nmap <c-m> :CtrlPTag<cr>
-nmap <c-b> :CtrlPBuffer<cr>
-"}}}
-
 "{{{ tags
 " search until we find the tags file
 set tags=./tags;
@@ -319,35 +307,60 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 nmap <silent> <leader>o :FSHere<CR>
 "}}}
 
-"{{{ vim latex
-let g:tex_flavor='latex'
-set iskeyword+=:
-imap <C-space> <Plug>IMAP_JumpForward
-nmap <C-space> <Plug>IMAP_JumpForward
-"}}}
-
 " {{{ airline
 let g:airline_theme='bubblegum'
 let g:airline_exclude_preview=1
 let g:airline#extensions#tabline#enabled=1
 " }}}
 
-" {{{ ack
-nmap <leader>a :Ack
-" }}}
-
 "{{{ Camel Case Motion
-map <leader>w <Plug>CamelCaseMotion_w
-map <leader>b <Plug>CamelCaseMotion_b
-map <leader>e <Plug>CamelCaseMotion_e
-"}}}
-
-"{{{ YankRing
-nnoremap <silent> <leader>y :YRShow<CR>
-let g:yankring_replace_n_pkey = '<leader>p'
-let g:yankring_replace_n_nkey = '<leader>n'
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 "}}}
 
 "{{{ Gundo
 nnoremap <F5> :GundoToggle<CR>
+"}}}
+
+"{{{ Unite
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ '\.svn/',
+      \ ], '\|'))
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  imap <silent><buffer><expr> <C-x> unite#do_action('split')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+" ctrlp-like
+nnoremap <space>p :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+" content search
+nnoremap <space>/ :Unite grep:.<CR>
+" buffer switching
+nnoremap <space>s :Unite -quick-match buffer<CR>
+" yank history
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
 "}}}
