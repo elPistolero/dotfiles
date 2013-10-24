@@ -39,6 +39,7 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -363,4 +364,19 @@ nnoremap <space>s :Unite -quick-match buffer<CR>
 " yank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
+"}}}
+
+"{{{ gtags-cscope
+let GtagsCscope_Auto_Load = 1
+"let GtagsCscope_Auto_Map = 1
+nmap <space><space>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <space><space>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <space><space>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <space><space>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <space><space>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <space><space>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <space><space>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <space><space>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+let GtagsCscope_Quiet = 1
+set cscopetag
 "}}}
