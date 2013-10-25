@@ -40,6 +40,7 @@ Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'godlygeek/tabular'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
