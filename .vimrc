@@ -1,4 +1,3 @@
-
 "{{{ Init vundle
 set nocompatible
 filetype off
@@ -40,6 +39,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
+Bundle 'terryma/vim-multiple-cursors'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
