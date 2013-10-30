@@ -17,28 +17,29 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'ervandew/supertab'
 "Bundle 'Rip-Rip/clang_complete'
-"Bundle 'kien/ctrlp.vim'
-"Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'ivalkeen/vim-ctrlp-tjump'
 "Bundle 'davidhalter/jedi-vim'
 "Bundle 'klen/python-mode'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-repeat'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
+"Bundle 'Shougo/unite.vim'
+"Bundle 'Shougo/vimproc.vim'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
-"Bundle 'mileszs/ack.vim'
+Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
-"Bundle 'vim-scripts/YankRing.vim'
+Bundle 'vim-scripts/YankRing.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
+"Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'godlygeek/tabular'
 " vim-scripts repos
@@ -328,56 +329,24 @@ sunmap e
 nnoremap <F5> :GundoToggle<CR>
 "}}}
 
-"{{{ Unite
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
-
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ '\.svn/',
-      \ ], '\|'))
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-
-autocmd FileType unite call s:unite_settings()
-
-function! s:unite_settings()
-  let b:SuperTabDisabled=1
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-x> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
-" ctrlp-like
-nnoremap <space>p :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
-" content search
-nnoremap <space>/ :Unite grep:.<CR>
-" buffer switching
-nnoremap <space>s :Unite -quick-match buffer<CR>
-" yank history
-let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite history/yank<cr>
+"{{{ ctrlp
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_height = 40
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_extensions = ['funky', 'line']
+let g:ctrlp_map = '<space>p'
+nmap <space>l :CtrlPLine<cr>
+nmap <space>k :CtrlPFunky<cr>
+nmap <space>t :CtrlPTag<cr>
+nmap <space>b :CtrlPBuffer<cr>
+nnoremap t :CtrlPtjump<cr>
+vnoremap t :CtrlPtjumpVisual<cr>
 "}}}
 
-"{{{ gtags-cscope
-let GtagsCscope_Auto_Load = 1
-"let GtagsCscope_Auto_Map = 1
-nmap <space><space>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <space><space>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <space><space>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <space><space>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <space><space>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <space><space>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <space><space>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <space><space>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-let GtagsCscope_Quiet = 1
-set cscopetag
+"{{{ ack
+nmap <space>a :Ack
+"}}}
+
+"{{{ YankRing
+nnoremap <silent> <space>y :YRShow<CR>
 "}}}
