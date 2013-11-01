@@ -35,7 +35,8 @@ Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'vim-scripts/YankRing.vim'
+Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'sjl/gundo.vim'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -347,6 +348,7 @@ vnoremap t :CtrlPtjumpVisual<cr>
 nmap <space>a :Ack
 "}}}
 
-"{{{ YankRing
-nnoremap <silent> <space>y :YRShow<CR>
+"{{{ YankStack
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 "}}}
