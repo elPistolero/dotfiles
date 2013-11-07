@@ -338,10 +338,10 @@ let g:ctrlp_extensions = ['funky', 'line']
 let g:ctrlp_map = '<space>p'
 nmap <space>l :CtrlPLine<cr>
 nmap <space>k :CtrlPFunky<cr>
-nmap <space>t :CtrlPTag<cr>
+nmap <space>m :CtrlPTag<cr>
 nmap <space>b :CtrlPBuffer<cr>
-nnoremap t :CtrlPtjump<cr>
-vnoremap t :CtrlPtjumpVisual<cr>
+nnoremap <space>t :CtrlPtjump<cr>
+vnoremap <space>t :CtrlPtjumpVisual<cr>
 "}}}
 
 "{{{ ack
