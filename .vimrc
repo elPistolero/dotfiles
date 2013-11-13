@@ -43,6 +43,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 "Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'godlygeek/tabular'
+Bundle 'arecarn/crunch'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -351,4 +352,9 @@ nmap <space>a :Ack
 "{{{ YankStack
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
+"}}}
+
+"{{{ Crunch
+map <silent> <space>cl <plug>CrunchEvalLine
+map <silent> <space>cb <plug>CrunchEvalBlock
 "}}}
