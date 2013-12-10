@@ -29,6 +29,7 @@ Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'Shougo/unite.vim'
 "Bundle 'Shougo/vimproc.vim'
 "Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/ZoomWin'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
@@ -44,6 +45,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'godlygeek/tabular'
 Bundle 'arecarn/crunch'
+Bundle 'junegunn/seoul256.vim'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -233,7 +235,7 @@ set colorcolumn=-0
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set t_Co=256
-colorscheme zenburn
+colorscheme seoul256
 
 "Status line gnarliness
 set laststatus=2
@@ -304,8 +306,8 @@ set tags=./tags;
 "{{{ YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
 "}}}
 
 "{{{ FSwitch
