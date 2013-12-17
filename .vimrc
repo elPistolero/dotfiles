@@ -46,6 +46,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'godlygeek/tabular'
 Bundle 'arecarn/crunch'
 Bundle 'junegunn/seoul256.vim'
+Bundle 'bilalq/lite-dfm'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -359,4 +360,8 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 "{{{ Crunch
 map <silent> <space>cl <plug>CrunchEvalLine
 map <silent> <space>cb <plug>CrunchEvalBlock
+"}}}
+
+"{{{ LiteDFM
+nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
 "}}}
