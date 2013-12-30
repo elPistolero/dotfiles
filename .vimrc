@@ -296,6 +296,7 @@ let g:tagbar_type_tex = {
 "}}}
 
 "{{{ nerdtree
+let NERDTreeHijackNetrw=1
 nmap <F9> :NERDTreeTabsToggle <CR>
 "}}}
 
