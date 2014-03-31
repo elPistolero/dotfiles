@@ -24,6 +24,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 "Bundle 'klen/python-mode'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-markdown'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'Shougo/unite.vim'
@@ -47,6 +48,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'arecarn/crunch'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'bilalq/lite-dfm'
+Bundle 'edkolev/promptline.vim'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -307,9 +309,11 @@ set tags=./tags;
 
 "{{{ YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"let g:ycm_seed_identifiers_with_syntax = 1
-"let g:ycm_collect_identifiers_from_tags_files = 1
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_server_log_level = 'debug'
 "}}}
 
 "{{{ FSwitch
