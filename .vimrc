@@ -77,6 +77,8 @@ set foldcolumn=0
 set autoindent
 set smartindent
 
+set autoread
+
 " Spaces are better than a tab character
 set expandtab
 set smarttab
