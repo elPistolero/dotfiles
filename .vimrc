@@ -23,6 +23,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 "Bundle 'davidhalter/jedi-vim'
 "Bundle 'klen/python-mode'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-dispatch'
 "Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-markdown'
 Bundle 'bkad/CamelCaseMotion'
@@ -49,6 +50,7 @@ Bundle 'arecarn/crunch'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'bilalq/lite-dfm'
 Bundle 'edkolev/promptline.vim'
+"Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
 " non github repos
 "Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -383,4 +385,8 @@ map <silent> <space>cb <plug>CrunchEvalBlock
 
 "{{{ LiteDFM
 nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
+"}}}
+
+"{{{ make options
+set makeprg=make\ -C\ /home/lim/bin/machine_learning_release\ -j50
 "}}}
