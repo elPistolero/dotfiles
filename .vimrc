@@ -110,6 +110,7 @@ set mouse=a
 set backspace=2
 
 " Line Numbers PWN!
+set relativenumber
 set number
 
 " Ignoring case is a fun trick
