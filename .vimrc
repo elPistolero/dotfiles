@@ -50,6 +50,7 @@ Bundle 'arecarn/crunch'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'bilalq/lite-dfm'
 Bundle 'edkolev/promptline.vim'
+Bundle 'kbairak/TurboMark'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
 " non github repos
