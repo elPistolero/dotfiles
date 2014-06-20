@@ -183,6 +183,11 @@ augroup END
 "}}}
 
 "{{{Mappings
+
+" make sure yankstack mappings don't cause any problems
+call yankstack#setup()
+
+
 " Change the mapleader from \ to ,
 let mapleader=","
 
