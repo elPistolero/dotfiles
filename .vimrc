@@ -52,6 +52,7 @@ Bundle 'junegunn/seoul256.vim'
 Bundle 'bilalq/lite-dfm'
 Bundle 'edkolev/promptline.vim'
 Bundle 'kbairak/TurboMark'
+Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
 " non github repos
@@ -66,7 +67,7 @@ set grepprg=grep\ -nH\ $*
 "{{{Misc Settings
 set nocompatible
 
-set wildignore+=*.o,*.obj,*.aux,.git,.svn
+set wildignore+=*/build*,*.o,*.obj,*.aux,.git,.svn
 
 " This shows what you are typing as a command.  I love this!
 set showcmd
@@ -396,5 +397,5 @@ nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
 "}}}
 
 "{{{ make options
-set makeprg=make\ -C\ /home/lim/bin/machine_learning_release\ -j50
+set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
 "}}}
