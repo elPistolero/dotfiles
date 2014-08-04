@@ -52,7 +52,9 @@ Bundle 'junegunn/seoul256.vim'
 Bundle 'bilalq/lite-dfm'
 Bundle 'edkolev/promptline.vim'
 Bundle 'kbairak/TurboMark'
-Bundle 'saihoooooooo/glowshi-ft.vim'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
+"Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
 " non github repos
@@ -398,4 +400,8 @@ nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
 
 "{{{ make options
 set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
+"}}}
+
+"{{{ vim notes
+let g:notes_directories = ['~/Documents/Notes']
 "}}}
