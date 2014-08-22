@@ -54,6 +54,7 @@ Bundle 'edkolev/promptline.vim'
 Bundle 'kbairak/TurboMark'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
+Bundle 'wellle/targets.vim'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
