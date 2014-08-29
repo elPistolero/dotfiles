@@ -211,6 +211,8 @@ inoremap <silent> <Down> <Esc>gja
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 
+imap jk <Esc>
+
 " Jump to tag
 nnoremap t <C-]>
 
