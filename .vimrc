@@ -56,6 +56,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
 Bundle 'wellle/targets.vim'
 Bundle 'fatih/vim-go'
+Bundle 'szw/vim-tags'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
@@ -408,4 +409,8 @@ set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
 
 "{{{ vim notes
 let g:notes_directories = ['~/Documents/Notes']
+"}}}
+
+"{{{ vim-tags
+let g:vim_tags_use_vim_dispatch = 1
 "}}}
