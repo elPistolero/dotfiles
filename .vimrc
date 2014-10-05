@@ -359,12 +359,9 @@ let g:airline#extensions#tabline#enabled=1
 " }}}
 
 "{{{ Camel Case Motion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+map <Leader> w <Plug>CamelCaseMotion_w
+map <Leader> b <Plug>CamelCaseMotion_b
+map <Leader> e <Plug>CamelCaseMotion_e
 "}}}
 
 "{{{ Gundo
