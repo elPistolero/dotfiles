@@ -57,6 +57,7 @@ Bundle 'xolox/vim-notes'
 Bundle 'wellle/targets.vim'
 Bundle 'fatih/vim-go'
 Bundle 'szw/vim-tags'
+Bundle 'gcmt/wildfire.vim'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
