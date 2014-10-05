@@ -248,6 +248,10 @@ nmap <silent> ,r :redraw!<CR>
 
 " repeat operator in visual mode
 vnoremap . :normal .<CR>
+
+" Keep selection after indent
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
 "}}}
 
 "{{{ Look and Feel
