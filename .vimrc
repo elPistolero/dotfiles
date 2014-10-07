@@ -59,6 +59,7 @@ Bundle 'fatih/vim-go'
 Bundle 'szw/vim-tags'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'Yggdroot/indentLine'
+Bundle 'Rykka/clickable.vim'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
 " vim-scripts repos
