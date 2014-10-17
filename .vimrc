@@ -37,7 +37,8 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
+"Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 "Bundle 'vim-scripts/YankRing.vim'
 Bundle 'maxbrunsfeld/vim-yankstack'
@@ -390,8 +391,8 @@ nnoremap <space>t :CtrlPtjump<cr>
 vnoremap <space>t :CtrlPtjumpVisual<cr>
 "}}}
 
-"{{{ ack
-nmap <space>a :Ack
+"{{{ ag
+nmap <space>a :Ag --ignore build/ --ignore compile_commands.json
 "}}}
 
 "{{{ YankStack
