@@ -61,6 +61,7 @@ Bundle 'szw/vim-tags'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'gorkunov/smartgf.vim'
+Bundle 'haya14busa/incsearch.vim'
 "Bundle 'Rykka/clickable.vim'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
 "Bundle 'jalcine/cmake.vim'
@@ -419,4 +420,19 @@ let g:notes_directories = ['~/Documents/Notes']
 
 "{{{ vim-tags
 let g:vim_tags_use_vim_dispatch = 1
+"}}}
+
+"{{{ incsearch
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n <Plug>(incsearch-nohl-n)
+map N <Plug>(incsearch-nohl-N)
+map * <Plug>(incsearch-nohl-*)
+map # <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 "}}}
