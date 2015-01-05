@@ -395,7 +395,7 @@ vnoremap <space>t :CtrlPtjumpVisual<cr>
 "}}}
 
 "{{{ ag
-nmap <space>a :Ag --ignore build/ --ignore compile_commands.json
+nmap <space>a :Ag --ignore build/ --ignore compile_commands.json --ignore tags
 "}}}
 
 "{{{ YankStack
