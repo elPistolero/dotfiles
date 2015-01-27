@@ -444,3 +444,7 @@ map g# <Plug>(incsearch-nohl-g#)
 "{{{ FastFold
 set foldmethod=syntax
 "}}}
+
+"{{{ tex
+let g:tex_conceal = ""
+"}}}
