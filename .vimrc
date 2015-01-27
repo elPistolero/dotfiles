@@ -32,7 +32,7 @@ Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'Shougo/unite.vim'
 "Bundle 'Shougo/vimproc.vim'
 "Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/ZoomWin'
+"Bundle 'vim-scripts/ZoomWin'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
