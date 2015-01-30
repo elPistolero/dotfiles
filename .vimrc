@@ -194,8 +194,8 @@ set clipboard=unnamedplus
 "augroup END
 
 " Close preview scratch window after autocomplete selection
-   "autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-   "autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+   autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+   autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "}}}
 
 "{{{Mappings
@@ -444,6 +444,7 @@ map g# <Plug>(incsearch-nohl-g#)
 
 "{{{ FastFold
 set foldmethod=syntax
+let g:fastfold_savehook = 0
 "}}}
 
 "{{{ tex
