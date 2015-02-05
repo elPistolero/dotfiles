@@ -347,7 +347,7 @@ let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_always_populate_location_ist = 1
+let g:ycm_always_populate_location_list = 1
 "let g:ycm_server_use_vim_stdout = 1
 "let g:ycm_server_log_level = 'debug'
 let g:ycm_show_diagnostics_ui=1
