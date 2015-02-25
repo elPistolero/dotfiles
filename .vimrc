@@ -34,7 +34,8 @@ Bundle 'derekwyatt/vim-fswitch'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/ZoomWin'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'justinmk/vim-sneak'
 Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
 "Bundle 'mileszs/ack.vim'
@@ -454,17 +455,22 @@ let g:tex_conceal = ""
 "{{{ easymotion
 "nmap s <Plug>(easymotion-s2)
 "nmap t <Plug>(easymotion-t2)
-nmap s <Plug>(easymotion-s)
-nmap t <Plug>(easymotion-bd-tl)
+"nmap s <Plug>(easymotion-s)
+"nmap t <Plug>(easymotion-bd-tl)
 "map  / <Plug>(easymotion-sn)
 "omap / <Plug>(easymotion-tn)
 "map  n <Plug>(easymotion-next)
 "map  N <Plug>(easymotion-prev)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-let g:EasyMotion_smartcase = 1
+"map <Leader>l <Plug>(easymotion-lineforward)
+"map <Leader>j <Plug>(easymotion-j)
+"map <Leader>k <Plug>(easymotion-k)
+"map <Leader>h <Plug>(easymotion-linebackward)
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+"let g:EasyMotion_smartcase = 1
 "}}}
-"
+
+"{{{ sneak
+let g:sneak#streak = 1
+nmap s <Plug>(SneakStreak)
+nmap S <Plug>(SneakStreakBackward)
+"}}}
