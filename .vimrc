@@ -63,8 +63,8 @@ Bundle 'gcmt/wildfire.vim'
 Bundle 'Yggdroot/indentLine'
 "Bundle 'gorkunov/smartgf.vim'
 Bundle 'haya14busa/incsearch.vim'
-Bundle 'Konfekt/FastFold'
-Bundle 'Konfekt/FoldText'
+"Bundle 'Konfekt/FastFold'
+"Bundle 'Konfekt/FoldText'
 "Bundle 'pelodelfuego/vim-swoop'
 "Bundle 'Rykka/clickable.vim'
 "Bundle 'saihoooooooo/glowshi-ft.vim'
@@ -444,8 +444,8 @@ map g# <Plug>(incsearch-nohl-g#)
 "}}}
 
 "{{{ FastFold
-set foldmethod=syntax
-let g:fastfold_savehook = 0
+"set foldmethod=syntax
+"let g:fastfold_savehook = 0
 "}}}
 
 "{{{ tex
