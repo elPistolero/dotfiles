@@ -155,6 +155,9 @@ highlight MatchParen ctermbg=4
 set showmatch
 
 set showmode
+
+" syntax coloring lines that are too long just slows down the world
+set synmaxcol=200
 " }}}
 
 " {{{ paste settings
