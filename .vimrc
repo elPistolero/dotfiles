@@ -200,7 +200,9 @@ set clipboard=unnamedplus
 " Close preview scratch window after autocomplete selection
    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"}}}
+
+   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+"}}
 
 "{{{Mappings
 
