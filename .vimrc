@@ -63,6 +63,7 @@ Bundle 'szw/vim-tags'
 Bundle 'Yggdroot/indentLine'
 "Bundle 'gorkunov/smartgf.vim'
 Bundle 'haya14busa/incsearch.vim'
+Bundle 'embear/vim-localvimrc'
 "Bundle 'Konfekt/FastFold'
 "Bundle 'Konfekt/FoldText'
 "Bundle 'pelodelfuego/vim-swoop'
@@ -478,4 +479,8 @@ let g:tex_conceal = ""
 let g:sneak#streak = 1
 nmap s <Plug>(SneakStreak)
 nmap S <Plug>(SneakStreakBackward)
+"}}}
+
+"{{{ local vimrc
+let g:localvimrc_sandbox = 0
 "}}}
