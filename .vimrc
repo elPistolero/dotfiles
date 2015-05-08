@@ -423,7 +423,7 @@ nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
 "}}}
 
 "{{{ make options
-set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
+"set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
 "}}}
 
 "{{{ vim notes
