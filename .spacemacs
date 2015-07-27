@@ -15,9 +15,14 @@
      company-mode
      c-c++
      html
+     python
+     latex
+     org
+     markdown
      ycmd
      gtags
      latex
+     magit
      (auto-completion  :variables
                        auto-completion-complete-with-key-sequence "jk")
      syntax-checking
@@ -147,19 +152,27 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
-  (set-variable 'ycmd-extra-conf-whitelist '("/local/lim/workspace/*"))
-  ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
-  (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
-  (setq large-file-warning-threshold nil)
-  (setq compilation-scroll-output 'next-error)
-  (setq compilation-skip-threshold 2)
   )
 
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+
+  (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
+  (set-variable 'ycmd-extra-conf-whitelist '("/local/lim/workspace/*"))
+  ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
+  (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
+  ;; (setq projectile-globally-ignored-directories
+  ;;       '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
+  ;;         ".svn" "build"))
+  ;; (setq grep-find-ignored-directories
+  ;;       '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
+  ;;         ".svn" "*/build/*"))
+  (setq large-file-warning-threshold nil)
+  (setq compilation-scroll-output 'next-error)
+  (setq compilation-skip-threshold 2)
+  (global-set-key (kbd "C-SPC") 'company-complete)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
