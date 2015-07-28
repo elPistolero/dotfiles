@@ -22,7 +22,7 @@
      ycmd
      gtags
      latex
-     magit
+     git
      (auto-completion  :variables
                        auto-completion-complete-with-key-sequence "jk")
      syntax-checking
@@ -152,6 +152,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq-default git-enable-magit-svn-plugin t)
   )
 
 (defun dotspacemacs/config ()
@@ -163,17 +164,39 @@ layers configuration."
   (set-variable 'ycmd-extra-conf-whitelist '("/local/lim/workspace/*"))
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
   (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
-  ;; (setq projectile-globally-ignored-directories
-  ;;       '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
-  ;;         ".svn" "build"))
-  ;; (setq grep-find-ignored-directories
-  ;;       '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
-  ;;         ".svn" "*/build/*"))
+  (setq projectile-globally-ignored-directories
+        '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
+          ".svn" "build"))
+  (setq grep-find-ignored-directories
+        '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
+          ".svn" "build"))
+  ()
   (setq large-file-warning-threshold nil)
   (setq compilation-scroll-output 'next-error)
   (setq compilation-skip-threshold 2)
   (global-set-key (kbd "C-SPC") 'company-complete)
+  (setq helm-ag-use-grep-ignore-list t)
+  (setq helm-ag-use-agignore t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(helm-ag-use-grep-ignore-list t)
+ '(ring-bell-function (quote ignore) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
