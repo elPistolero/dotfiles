@@ -13,6 +13,7 @@
    dotspacemacs-configuration-layers
    '(all
      company-mode
+     extra-langs
      c-c++
      html
      python
@@ -23,6 +24,7 @@
      gtags
      latex
      git
+     ipython-notebook
      (auto-completion  :variables
                        auto-completion-complete-with-key-sequence "jk")
      syntax-checking
