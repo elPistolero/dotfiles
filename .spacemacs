@@ -11,8 +11,7 @@
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(all
-     company-mode
+   '(company-mode
      extra-langs
      c-c++
      html
@@ -25,8 +24,10 @@
      latex
      git
      ipython-notebook
+     eyebrowse
      (auto-completion  :variables
-                       auto-completion-complete-with-key-sequence "jk")
+                       auto-completion-enable-help-tooltip t
+                       auto-completion-enable-sort-by-usage t)
      syntax-checking
      better-defaults
      semantic
@@ -109,7 +110,7 @@ before layers configuration."
    dotspacemacs-enable-paste-micro-state nil
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
-   dotspacemacs-guide-key-delay 0.4
+   dotspacemacs-guide-key-delay 0.2
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil ;; to boost the loading time.
@@ -127,7 +128,7 @@ before layers configuration."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'.
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 100
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'.
@@ -162,6 +163,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
+  (global-company-mode)
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("/local/lim/workspace/*"))
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
@@ -172,13 +174,14 @@ layers configuration."
   (setq grep-find-ignored-directories
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
           ".svn" "build"))
-  ()
+  (add-hook 'after-init-hook #'global-ycmd-mode)
   (setq large-file-warning-threshold nil)
   (setq compilation-scroll-output 'next-error)
   (setq compilation-skip-threshold 2)
   (global-set-key (kbd "C-SPC") 'company-complete)
   (setq helm-ag-use-grep-ignore-list t)
   (setq helm-ag-use-agignore t)
+  (setq ycmd-tag-files 'auto)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
