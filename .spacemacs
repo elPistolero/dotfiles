@@ -165,7 +165,7 @@ layers configuration."
 
   (global-company-mode)
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
-  (set-variable 'ycmd-extra-conf-whitelist '("/local/lim/workspace/*"))
+  (setq ycmd-extra-conf-handler 'load)
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
   (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
   (setq projectile-globally-ignored-directories
