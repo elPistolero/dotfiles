@@ -167,7 +167,7 @@ layers configuration."
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
   (setq ycmd-extra-conf-handler 'load)
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
-  (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
+  (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -not -iwholename '*/build/*' -print0")
   (setq projectile-globally-ignored-directories
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
           ".svn" "build"))
