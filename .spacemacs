@@ -23,6 +23,8 @@
      gtags
      latex
      git
+     (shell :variables shell-default-shell 'multi-term
+                       shell-default-term-shell "/home/lim/bin/fish/bin/fish")
      ipython-notebook
      eyebrowse
      (auto-completion  :variables
@@ -182,6 +184,8 @@ layers configuration."
   (setq helm-ag-use-grep-ignore-list t)
   (setq helm-ag-use-agignore t)
   (setq ycmd-tag-files 'auto)
+  (setq multi-term-program "/home/lim/bin/fish/bin/fish")
+  (setq system-uses-terminfo nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
