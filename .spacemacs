@@ -166,7 +166,6 @@ before layers configuration."
 layers configuration."
 
   (global-company-mode)
-  (global-linum-mode)
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
   (setq ycmd-extra-conf-handler 'load)
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
@@ -178,6 +177,7 @@ layers configuration."
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
           ".svn" "build"))
   (add-hook 'after-init-hook #'global-ycmd-mode)
+  (add-hook 'prog-mode-hook #'linum-mode)
   (setq large-file-warning-threshold nil)
   (setq compilation-scroll-output 'next-error)
   (setq compilation-skip-threshold 2)
