@@ -166,6 +166,7 @@ before layers configuration."
 layers configuration."
 
   (global-company-mode)
+  (global-linum-mode)
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
   (setq ycmd-extra-conf-handler 'load)
   ;; (setq projectile-svn-command "svn list -R --include-externals . | grep -v '$/' | tr '\\n' '\\0'")
