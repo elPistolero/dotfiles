@@ -186,6 +186,11 @@ layers configuration."
   (setq ycmd-tag-files 'auto)
   (setq multi-term-program "/home/lim/bin/fish/bin/fish")
   (setq system-uses-terminfo nil)
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8-unix)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
