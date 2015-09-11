@@ -109,7 +109,7 @@ before layers configuration."
    dotspacemacs-use-ido nil
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content.
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
    dotspacemacs-guide-key-delay 0.2
@@ -147,7 +147,7 @@ before layers configuration."
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil advises quit functions to keep server open when quitting.
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -177,6 +177,7 @@ layers configuration."
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
           ".svn" "build"))
   (add-hook 'after-init-hook #'global-ycmd-mode)
+  (add-hook 'prog-mode-hook #'linum-mode)
   (setq large-file-warning-threshold nil)
   (setq compilation-scroll-output 'next-error)
   (setq compilation-skip-threshold 2)
