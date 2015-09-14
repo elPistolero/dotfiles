@@ -23,6 +23,7 @@
      gtags
      latex
      git
+     tmux
      (shell :variables shell-default-shell 'multi-term
                        shell-default-term-shell "/home/lim/bin/fish/bin/fish")
      ipython-notebook
@@ -192,6 +193,8 @@ layers configuration."
   (set-keyboard-coding-system 'utf-8)
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
+  (setq x-select-enable-clipboard t)
+  (setq x-select-enable-primary t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
