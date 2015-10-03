@@ -8,7 +8,6 @@
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
-   dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -23,7 +22,6 @@
      ycmd
      gtags
      latex
-     git
      tmux
      (shell :variables shell-default-shell 'multi-term
                        shell-default-term-shell "/home/lim/bin/fish/bin/fish")
@@ -39,7 +37,6 @@
      gdb-many-windows
      emacs-lisp
      company-mode
-     cmake-project
      cmake)
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -138,7 +135,7 @@ before layers configuration."
    ;; Transparency can be toggled through `toggle-transparency'.
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line.
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
