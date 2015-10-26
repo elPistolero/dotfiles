@@ -24,6 +24,8 @@
      latex
      tmux
      (shell :variables shell-default-shell 'multi-term
+                       shell-default-position 'right
+                       shell-default-width 50
                        shell-default-term-shell "/home/lim/bin/fish/bin/fish")
      ipython-notebook
      eyebrowse
@@ -33,6 +35,7 @@
      syntax-checking
      better-defaults
      semantic
+     git
      version-control
      gdb-many-windows
      emacs-lisp
@@ -42,7 +45,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(cuda-mode)
+   dotspacemacs-additional-packages '(cuda-mode xclip)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -164,6 +167,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
 
+  (xclip-mode 1)
   (global-company-mode)
   (set-variable 'ycmd-server-command '("python" "/home/lim/workspace/ycmd/ycmd"))
   (setq ycmd-extra-conf-handler 'load)
@@ -177,6 +181,7 @@ layers configuration."
           ".svn" "build"))
   (add-hook 'after-init-hook #'global-ycmd-mode)
   (add-hook 'prog-mode-hook #'linum-mode)
+  ;; (add-hook 'python-mode-hook (lambda () (add-to-list 'flycheck-disable-checker 'ycmd)))
   (setq large-file-warning-threshold nil)
   (setq compilation-scroll-output 'next-error)
   (setq compilation-skip-threshold 2)
@@ -193,6 +198,10 @@ layers configuration."
   (prefer-coding-system 'utf-8)
   (setq x-select-enable-clipboard t)
   (setq x-select-enable-primary t)
+  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+  (setq x-stretch-cursor t)
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
