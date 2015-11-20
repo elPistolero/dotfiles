@@ -2,79 +2,51 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let vundle manage vundle
 " required
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " bundles on github
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
-Bundle 'jistr/vim-nerdtree-tabs'
-"Bundle 'ervandew/supertab'
-"Bundle 'Rip-Rip/clang_complete'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'tacahiroy/ctrlp-funky'
-Bundle 'ivalkeen/vim-ctrlp-tjump'
-"Bundle 'davidhalter/jedi-vim'
-"Bundle 'klen/python-mode'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-repeat'
-"Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-markdown'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'derekwyatt/vim-fswitch'
-"Bundle 'Shougo/unite.vim'
-"Bundle 'Shougo/vimproc.vim'
-"Bundle 'vim-scripts/a.vim'
-"Bundle 'vim-scripts/ZoomWin'
-"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'justinmk/vim-sneak'
-Bundle 'bling/vim-airline'
-Bundle 'Valloric/YouCompleteMe'
-"Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'bronson/vim-trailing-whitespace'
-"Bundle 'vim-scripts/YankRing.vim'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'sjl/gundo.vim'
-Bundle 'nelstrom/vim-visual-star-search'
-"Bundle 'LaTeX-Box-Team/LaTeX-Box'
-"Bundle 'tranngocthachs/gtags-cscope-vim-plugin'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'godlygeek/tabular'
-"Bundle 'arecarn/crunch'
-Bundle 'junegunn/seoul256.vim'
-Bundle 'bilalq/lite-dfm'
-Bundle 'edkolev/promptline.vim'
-"Bundle 'kbairak/TurboMark'
-Bundle 'xolox/vim-misc'
-"Bundle 'xolox/vim-notes'
-Bundle 'wellle/targets.vim'
-Bundle 'fatih/vim-go'
-Bundle 'szw/vim-tags'
-"Bundle 'gcmt/wildfire.vim'
-Bundle 'Yggdroot/indentLine'
-"Bundle 'gorkunov/smartgf.vim'
-Bundle 'haya14busa/incsearch.vim'
-Bundle 'embear/vim-localvimrc'
-Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'NLKNguyen/papercolor-theme'
-"Bundle 'Konfekt/FastFold'
-"Bundle 'Konfekt/FoldText'
-"Bundle 'pelodelfuego/vim-swoop'
-"Bundle 'Rykka/clickable.vim'
-"Bundle 'saihoooooooo/glowshi-ft.vim'
-"Bundle 'jalcine/cmake.vim'
-" vim-scripts repos
-" non github repos
-"Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-markdown'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'justinmk/vim-sneak'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rking/ag.vim'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'maxbrunsfeld/vim-yankstack'
+Plugin 'sjl/gundo.vim'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'godlygeek/tabular'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'bilalq/lite-dfm'
+Plugin 'edkolev/promptline.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'wellle/targets.vim'
+Plugin 'fatih/vim-go'
+Plugin 'szw/vim-tags'
+Plugin 'Yggdroot/indentLine'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'embear/vim-localvimrc'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'christoomey/vim-tmux-navigator'
+call vundle#end()
 
 " Needed for Syntax Highlighting and stuff
 filetype plugin indent on
@@ -116,13 +88,6 @@ if version >= 700
    set spl=en spell
    set nospell
 endif
-
-" Real men use gcc
-"compiler gcc
-
-" Cool tab completion stuff
-"set wildmenu
-"set wildmode=list:longest,full
 
 " Enable mouse support in console
 set mouse=a
@@ -168,37 +133,6 @@ set clipboard=unnamedplus
 " }}}
 
 "{{{ Auto Commands
-" Automatically cd into the directory that the file is in
-"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
-" Remove any trailing whitespace that is in the file
-"autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-" Restore cursor position to where it was before
-"augroup JumpCursorOnEdit
-   "au!
-   "autocmd BufReadPost *
-            "\ if expand("<afile>:p:h") !=? $TEMP |
-            "\   if line("'\"") > 1 && line("'\"") <= line("$") |
-            "\     let JumpCursorOnEdit_foo = line("'\"") |
-            "\     let b:doopenfold = 1 |
-            "\     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
-            "\        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
-            "\        let b:doopenfold = 2 |
-            "\     endif |
-            "\     exe JumpCursorOnEdit_foo |
-            "\   endif |
-            "\ endif
-   "" Need to postpone using "zv" until after reading the modelines.
-   "autocmd BufWinEnter *
-            "\ if exists("b:doopenfold") |
-            "\   exe "normal zv" |
-            "\   if(b:doopenfold > 1) |
-            "\       exe  "+".1 |
-            "\   endif |
-            "\   unlet b:doopenfold |
-            "\ endif
-"augroup END
 
 " Close preview scratch window after autocomplete selection
    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -250,19 +184,6 @@ map n nzz
 nmap <silent> ,/ :nohlsearch<CR>
 
 nmap <silent> ,r :redraw!<CR>
-
-" move mappings
-" Normal mode
-"nnoremap <C-j> :m .+1<CR>==
-"nnoremap <C-k> :m .-2<CR>==
-
-"" Insert mode
-"inoremap <C-j> <ESC>:m .+1<CR>==gi
-"inoremap <C-k> <ESC>:m .-2<CR>==gi
-
-"" Visual mode
-"vnoremap <C-j> :m '>+1<CR>gv=gv
-"vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " repeat operator in visual mode
 vnoremap . :normal .<CR>
