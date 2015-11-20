@@ -216,7 +216,9 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
- '(helm-ag-use-grep-ignore-list t)
+ '(browse-url-browser-function (quote browse-url-chromium))
+ '(helm-ag-use-grep-ignore-list t t)
+ '(markdown-command "pandoc")
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
