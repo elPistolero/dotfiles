@@ -46,6 +46,7 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-scripts/gtags.vim'
 call vundle#end()
 
 " Needed for Syntax Highlighting and stuff
@@ -355,6 +356,13 @@ let g:notes_directories = ['~/Documents/Notes']
 
 "{{{ vim-tags
 let g:vim_tags_use_vim_dispatch = 1
+"}}}
+
+"{{{ gtags
+map t :Gtags<CR><CR>
+map <C-t> :Gtags -r<CR><CR>
+map <F11> :cp<CR>
+map <F12> :cn<CR>
 "}}}
 
 "{{{ incsearch
