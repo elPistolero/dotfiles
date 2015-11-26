@@ -47,6 +47,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-scripts/gtags.vim'
+Plugin 'stephpy/vim-yaml'
 call vundle#end()
 
 " Needed for Syntax Highlighting and stuff
@@ -130,7 +131,7 @@ set synmaxcol=200
 " }}}
 
 " {{{ paste settings
-set clipboard=unnamedplus
+set clipboard=unnamed
 " }}}
 
 "{{{ Auto Commands
@@ -292,6 +293,7 @@ let g:ycm_filetype_blacklist = {
         \ 'pandoc' : 1,
         \ 'mail' : 1
         \}
+nnoremap <leader>g :YcmCompleter GoTo<CR>
 "}}}
 
 "{{{ FSwitch
@@ -359,10 +361,10 @@ let g:vim_tags_use_vim_dispatch = 1
 "}}}
 
 "{{{ gtags
-map t :Gtags<CR><CR>
-map <C-t> :Gtags -r<CR><CR>
-map <F11> :cp<CR>
-map <F12> :cn<CR>
+nnoremap t :Gtags<CR><CR>
+nnoremap <C-t> :Gtags -r<CR><CR>
+nnoremap <F11> :cp<CR>
+nnoremap <F12> :cn<CR>
 "}}}
 
 "{{{ incsearch
