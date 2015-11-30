@@ -15,6 +15,7 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing
+import XMonad.Layout.Minimize
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
@@ -86,7 +87,7 @@ myManageHook = composeAll
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (
+myLayout = minimize $ avoidStruts (
     (spacing 10 $ ThreeColMid 1 (3/100) (1/2)) |||
     (spacing 10 $ Tall 1 (3/100) (1/2)) |||
     (spacing 10 $ Mirror (Tall 1 (3/100) (1/2))) |||
@@ -170,6 +171,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Increase volume.
   , ((modMask .|. controlMask, xK_k),
      spawn "amixer -q set Master 10%+")
+
+  -- Minimize
+  , ((modMask, xK_z ), withFocused minimizeWindow)
+  , ((modMask .|. shiftMask, xK_z ), sendMessage RestoreNextMinimizedWin)
 
   -- Audio previous.
   , ((0, 0x1008FF16),
