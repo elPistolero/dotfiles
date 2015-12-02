@@ -1,58 +1,55 @@
-"{{{ Init vundle
-set nocompatible
-filetype off
+"{{{ Init vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source '~/.vimrc'
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let vundle manage vundle
-" required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " bundles on github
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-markdown'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'justinmk/vim-sneak'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rking/ag.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'sjl/gundo.vim'
-Plugin 'nelstrom/vim-visual-star-search'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'godlygeek/tabular'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'bilalq/lite-dfm'
-Plugin 'edkolev/promptline.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'wellle/targets.vim'
-Plugin 'fatih/vim-go'
-Plugin 'szw/vim-tags'
-Plugin 'Yggdroot/indentLine'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'embear/vim-localvimrc'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-scripts/gtags.vim'
-Plugin 'stephpy/vim-yaml'
-call vundle#end()
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-markdown'
+Plug 'bkad/CamelCaseMotion'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'justinmk/vim-sneak'
+Plug 'bling/vim-airline'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'rking/ag.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'sjl/gundo.vim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/seoul256.vim'
+Plug 'bilalq/lite-dfm'
+Plug 'edkolev/promptline.vim'
+Plug 'xolox/vim-misc'
+Plug 'wellle/targets.vim'
+Plug 'fatih/vim-go'
+Plug 'szw/vim-tags'
+Plug 'Yggdroot/indentLine'
+Plug 'haya14busa/incsearch.vim'
+Plug 'embear/vim-localvimrc'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'christoomey/vim-tmux-navigator', {'commit': '999d252'}
+Plug 'vim-scripts/gtags.vim'
+Plug 'stephpy/vim-yaml'
+
+call plug#end()
 
 " Needed for Syntax Highlighting and stuff
-filetype plugin indent on
-syntax on
 set grepprg=grep\ -nH\ $*
 " }}}
 
