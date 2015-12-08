@@ -26,7 +26,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'justinmk/vim-sneak'
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'rking/ag.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'maxbrunsfeld/vim-yankstack'
