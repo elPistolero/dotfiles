@@ -194,8 +194,7 @@ vnoremap . :normal .<CR>
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-nnoremap <Space><Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <Space><Tab> :b#<CR>
 "}}}
 
 "{{{ Look and Feel
