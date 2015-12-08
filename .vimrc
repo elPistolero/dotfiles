@@ -193,6 +193,9 @@ vnoremap . :normal .<CR>
 " Keep selection after indent
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
+
+nnoremap <Space><Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 "}}}
 
 "{{{ Look and Feel
