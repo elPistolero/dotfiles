@@ -50,6 +50,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'christoomey/vim-tmux-navigator', {'commit': '999d252'}
 Plug 'vim-scripts/gtags.vim'
 Plug 'stephpy/vim-yaml'
+Plug 'milkypostman/vim-togglelist'
 
 call plug#end()
 
@@ -170,7 +171,7 @@ nnoremap <silent> zk O<Esc>
 imap fd <Esc>
 
 " Jump to tag
-nnoremap t <C-]>
+"nnoremap t <C-]>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
