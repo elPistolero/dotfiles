@@ -51,6 +51,7 @@ Plug 'christoomey/vim-tmux-navigator', {'commit': '999d252'}
 Plug 'vim-scripts/gtags.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'milkypostman/vim-togglelist'
+Plug 'mhinz/vim-grepper'
 
 call plug#end()
 
