@@ -13,6 +13,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
+import XMonad.Layout.Grid
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing
@@ -89,12 +90,12 @@ myManageHook = composeAll
 -- which denotes layout choice.
 --
 myLayout = minimize $ avoidStruts (
-    (spacing 10 $ ThreeColMid 1 (3/100) (1/2)) |||
+    (spacing 10 $ Grid) |||
     (spacing 10 $ Tall 1 (3/100) (1/2)) |||
-    (spacing 10 $ Mirror (Tall 1 (3/100) (1/2))) |||
     tabbed shrinkText tabConfig |||
-    Full |||
-    (spacing 10 $ spiral (6/7))) |||
+    {-(spacing 10 $ Mirror (Tall 1 (3/100) (1/2))) |||-}
+    Full
+    ) |||
     noBorders (fullscreenFull Full)
 
 
