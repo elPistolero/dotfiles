@@ -8,7 +8,7 @@ Config {
     bgColor = "#000000",
     fgColor = "#ffffff",
     --position = Static { xpos = 0, ypos = 0, width = 2560, height = 16 },
-    position = Top,
+    position = TopW L 95,
     lowerOnStart = True,
     commands = [
         Run Weather "EDDK" ["-t","<tempC>C <skyCondition>","-L","10","-H","20","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
