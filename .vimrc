@@ -15,9 +15,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
@@ -322,17 +321,25 @@ nnoremap <F5> :GundoToggle<CR>
 "}}}
 
 "{{{ ctrlp
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_height = 40
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_extensions = ['funky', 'line']
-let g:ctrlp_map = '<space>p'
-nmap <space>l :CtrlPLine<cr>
-nmap <space>k :CtrlPFunky<cr>
-nmap <space>m :CtrlPTag<cr>
-nmap <space>b :CtrlPBuffer<cr>
-nnoremap <space>t :CtrlPtjump<cr>
-vnoremap <space>t :CtrlPtjumpVisual<cr>
+"let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_max_height = 40
+"let g:ctrlp_follow_symlinks = 1
+"let g:ctrlp_extensions = ['funky', 'line']
+"let g:ctrlp_map = '<space>p'
+"nmap <space>l :CtrlPLine<cr>
+"nmap <space>k :CtrlPFunky<cr>
+"nmap <space>m :CtrlPTag<cr>
+"nmap <space>b :CtrlPBuffer<cr>
+"nnoremap <space>t :CtrlPtjump<cr>
+"vnoremap <space>t :CtrlPtjumpVisual<cr>
+"}}}
+
+"{{{ fzf
+nmap <space>p :Files<cr>
+nmap <space>l :BLines<cr>
+nmap <space>k :BTags<cr>
+nmap <space>m :Tags<cr>
+nmap <space>b :Buffers<cr>
 "}}}
 
 "{{{ ag
