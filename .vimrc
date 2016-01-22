@@ -44,7 +44,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'christoomey/vim-tmux-navigator', {'commit': '999d252'}
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/gtags.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'milkypostman/vim-togglelist'
