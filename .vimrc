@@ -17,6 +17,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
@@ -27,30 +29,27 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'justinmk/vim-sneak'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'rking/ag.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'godlygeek/tabular'
-Plug 'junegunn/seoul256.vim'
-Plug 'bilalq/lite-dfm'
 Plug 'edkolev/promptline.vim'
 Plug 'xolox/vim-misc'
 Plug 'wellle/targets.vim'
-Plug 'fatih/vim-go'
 Plug 'szw/vim-tags'
 Plug 'Yggdroot/indentLine'
 Plug 'haya14busa/incsearch.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'christoomey/vim-tmux-navigator', {'commit': '999d252'}
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/gtags.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'milkypostman/vim-togglelist'
-Plug 'mhinz/vim-grepper'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 
 call plug#end()
 
@@ -343,7 +342,7 @@ nmap <space>b :Buffers<cr>
 "}}}
 
 "{{{ ag
-nmap <space>a :Ag --ignore build/ --ignore compile_commands.json --ignore tags
+nmap <space>a :Ag
 "}}}
 
 "{{{ YankStack
@@ -429,4 +428,10 @@ nmap S <Plug>(SneakStreakBackward)
 "{{{ local vimrc
 let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
+"}}}
+
+"{{{ incsearch fuzzy
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
 "}}}
