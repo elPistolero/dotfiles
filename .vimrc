@@ -51,6 +51,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'milkypostman/vim-togglelist'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -143,6 +144,11 @@ set clipboard=unnamed
    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+
+   augroup VimReload
+     autocmd!
+     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+   augroup END
 "}}}
 
 "{{{Mappings
@@ -208,7 +214,8 @@ set colorcolumn=-0
 "set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 set t_Co=256
-colorscheme seoul256
+colorscheme gruvbox
+set background=dark
 
 "Status line gnarliness
 set laststatus=2
@@ -305,7 +312,7 @@ nmap <silent> <leader>o :FSHere<CR>
 "}}}
 
 " {{{ airline
-let g:airline_theme='bubblegum'
+let g:airline_theme='gruvbox'
 let g:airline_exclude_preview=1
 let g:airline#extensions#tabline#enabled=1
 " }}}
