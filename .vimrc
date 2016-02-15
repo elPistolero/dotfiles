@@ -51,6 +51,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'milkypostman/vim-togglelist'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
