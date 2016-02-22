@@ -54,6 +54,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
