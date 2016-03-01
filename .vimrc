@@ -30,7 +30,7 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe',
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
