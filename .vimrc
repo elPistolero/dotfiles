@@ -214,7 +214,6 @@ nnoremap <Space><Tab> :b#<CR>
 "{{{ Look and Feel
 set textwidth=80
 set colorcolumn=-0
-set fo+=a
 
 " highlight whitespaces
 "set list
