@@ -149,7 +149,7 @@ set clipboard=unnamed
    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
+   "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
 
    augroup VimReload
      autocmd!
@@ -214,6 +214,7 @@ nnoremap <Space><Tab> :b#<CR>
 "{{{ Look and Feel
 set textwidth=80
 set colorcolumn=-0
+set fo+=a
 
 " highlight whitespaces
 "set list
