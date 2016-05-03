@@ -363,6 +363,7 @@ nmap <space>l :BLines<cr>
 nmap <space>k :BTags<cr>
 nmap <space>m :Tags<cr>
 nmap <space>b :Buffers<cr>
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 "}}}
 
 "{{{ ag
