@@ -31,7 +31,7 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe',
+Plug 'Valloric/YouCompleteMe', { 'commit': '61a5a9b84b8c0c993d63c20c8698b42db4365f60' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
