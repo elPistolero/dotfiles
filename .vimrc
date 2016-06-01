@@ -56,6 +56,7 @@ Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'lervag/vimtex'
+Plug 'neomake/neomake'
 "Plug 'davidhalter/jedi-vim'
 
 call plug#end()
