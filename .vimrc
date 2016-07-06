@@ -367,7 +367,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 "}}}
 
 "{{{ ag
-nmap <space>a :Ag
+nmap <space>a :Ag <c-r><c-w>
 "}}}
 
 "{{{ YankStack
