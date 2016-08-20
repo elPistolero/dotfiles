@@ -21,6 +21,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Minimize
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -165,16 +166,24 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn myScreenshot)
 
   -- Mute volume.
-  , ((modMask .|. controlMask, xK_m),
+  , ((0, xF86XK_AudioMute),
      spawn "amixer -q set Master toggle")
 
   -- Decrease volume.
-  , ((modMask .|. controlMask, xK_j),
-     spawn "amixer -q set Master 10%-")
+  , ((0, xF86XK_AudioLowerVolume),
+     spawn "amixer -q set Master 5%-")
 
   -- Increase volume.
-  , ((modMask .|. controlMask, xK_k),
-     spawn "amixer -q set Master 10%+")
+  , ((0, xF86XK_AudioRaiseVolume),
+     spawn "amixer -q set Master 5%+")
+
+  -- Brighten Screen
+  , ((0, xF86XK_MonBrightnessUp),
+     spawn "light -A 10.")
+
+  -- Dim Screen
+  , ((0, xF86XK_MonBrightnessDown),
+     spawn "light -U 10.")
 
   -- Minimize
   , ((modMask, xK_z ), withFocused minimizeWindow)
