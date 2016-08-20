@@ -57,6 +57,7 @@ Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'lervag/vimtex'
+Plug 'metakirby5/codi.vim'
 "Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -153,7 +154,7 @@ set clipboard=unnamed
 
    augroup VimReload
      autocmd!
-     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+     autocmd BufWritePost .vimrc source $MYVIMRC
    augroup END
 "}}}
 
