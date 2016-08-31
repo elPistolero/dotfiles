@@ -31,7 +31,7 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', { 'commit': '61a5a9b84b8c0c993d63c20c8698b42db4365f60', 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'commit': '61a5a9b84b8c0c993d63c20c8698b42db4365f60' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'sjl/gundo.vim'
@@ -155,12 +155,6 @@ set clipboard=unnamed
    augroup VimReload
      autocmd!
      autocmd BufWritePost .vimrc source $MYVIMRC
-   augroup END
-
-   augroup load_us_ycm
-     autocmd!
-     autocmd InsertEnter * call plug#load('YouCompleteMe') | call youcompleteme#Enable()
-           \| autocmd! load_us_ycm
    augroup END
 "}}}
 
