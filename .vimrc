@@ -58,7 +58,7 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'lervag/vimtex'
 Plug 'metakirby5/codi.vim'
-"Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -314,15 +314,26 @@ let g:ycm_filetype_blacklist = {
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 "}}}
 
+"{{{ python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+"}}}
+
 "{{{ jedi-vim
-"let g:jedi#auto_initialization = 1
-"let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
-"let g:jedi#smart_auto_mappings = 0
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#completions_command = ""
-"let g:jedi#show_call_signatures = "1"
-"let g:jedi#show_call_signatures_delay = 0
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
 "}}}
 
 "{{{ FSwitch
