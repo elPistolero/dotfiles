@@ -58,6 +58,9 @@ Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
 Plug 'lervag/vimtex'
 Plug 'metakirby5/codi.vim'
+Plug 'klen/python-mode'
+Plug 'python.vim'
+Plug 'python_match.vim'
 Plug 'davidhalter/jedi-vim'
 
 call plug#end()
@@ -314,24 +317,110 @@ let g:ycm_filetype_blacklist = {
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 "}}}
 
-"{{{ python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+"{{{ PyMode
+" Keys:
+" <leader>px    Execute python code
+" <leader>pK    Show python docs
+"? g     Rope goto definition
+"? d     Rope show documentation
+"? f     Rope find occurrences
+" <leader>pb     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[    Jump on previous class or function (normal, visual, operator modes)
+" ]]    Jump on next class or function (normal, visual, operator modes)
+" [M    Jump on previous class or method (normal, visual, operator modes)
+" ]M    Jump on next class or method (normal, visual, operator modes)
+"
+if !has('python')
+  let g:pymode = 0
+endif
+
+" Disable rope
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_autoimport = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = '<leader>pK'
+
+" Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes"
+let g:pymode_lint_checkers = ["pyflakes", "pep8"]
+" Ignore some lint warnings (Eg "E501,W"
+" would ignore E501 and all W erros.
+let g:pymode_lint_ignore = "E501"
+let g:pymode_lint_sort = ['E', 'C', 'I', 'W']
+
+" Place error signs
+let g:pymode_lint_signs = 1
+let g:pymode_lint_todo_symbol = 'WW'
+let g:pymode_lint_comment_symbol = 'CC'
+let g:pymode_lint_visual_symbol = 'RR'
+let g:pymode_lint_error_symbol = 'EE'
+let g:pymode_lint_info_symbol = 'II'
+let g:pymode_lint_pyflakes_symbol = 'FF'
+
+" Auto check on save
+let g:pymode_lint_write = 1
+let g:pymode_lint_on_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>pb'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_syntax_string_formatting = g:pymode_syntax_all
+let g:pymode_syntax_string_format = g:pymode_syntax_all
+let g:pymode_syntax_string_templates = g:pymode_syntax_all
+let g:pymode_syntax_doctests = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
+
+" Running python code
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>px'
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>pb'
+
+" Misc
+let g:pymode_utils_whitespaces = 0
+let g:pymode_options = 0
+let g:pymode_trim_whitespaces = 1
+
 "}}}
 
 "{{{ jedi-vim
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 0
+"let g:jedi#auto_initialization = 1
+"let g:jedi#completions_enabled = 0
+"let g:jedi#auto_vim_configuration = 0
+"let g:jedi#smart_auto_mappings = 0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#completions_command = ""
+"let g:jedi#show_call_signatures = "1"
 let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
+let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot = 0
-let g:jedi#completions_command = ""
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+
+let g:jedi#auto_close_doc = 1
+let g:jedi#goto_assignments_command = "<leader>pa"
+let g:jedi#goto_definitions_command = "<leader>pd"
+let g:jedi#documentation_command = "<leader>pk"
+let g:jedi#usages_command = "<leader>pu"
+let g:jedi#completions_command = "<leader>pc"
+let g:jedi#rename_command = "<leader>pr"
+
+call jedi#configure_call_signatures()
 let g:jedi#show_call_signatures = "1"
 let g:jedi#show_call_signatures_delay = 0
 "}}}
