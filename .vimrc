@@ -575,3 +575,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_python_checkers = ['pyflakes', 'python']
 "}}}
+
+"{{{ vim-json
+let g:vim_json_syntax_conceal = 0
+"}}}
+
+"{{{ conque
+let g:ConqueGdb_Leader = ',g'
+"}}}
