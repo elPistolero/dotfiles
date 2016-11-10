@@ -1,80 +1,102 @@
-"{{{ Init vim-plug
-
+if &compatible
+	set nocompatible
+endif
 set shell=/bin/sh
+let mapleader = " "
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source '~/.vimrc'
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
 endif
 
-call plug#begin('~/.vim/plugged')
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
-" bundles on github
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-fugitive'
-Plug 'bkad/CamelCaseMotion'
-Plug 'derekwyatt/vim-fswitch'
-Plug 'justinmk/vim-sneak'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe', { 'commit': '61a5a9b84b8c0c993d63c20c8698b42db4365f60' }
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'sjl/gundo.vim'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'godlygeek/tabular'
-Plug 'edkolev/promptline.vim'
-Plug 'xolox/vim-misc'
-Plug 'wellle/targets.vim'
-Plug 'szw/vim-tags'
-Plug 'Yggdroot/indentLine'
-Plug 'haya14busa/incsearch.vim'
-Plug 'embear/vim-localvimrc'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-scripts/gtags.vim'
-Plug 'vim-scripts/Conque-GDB'
-Plug 'stephpy/vim-yaml'
-Plug 'milkypostman/vim-togglelist'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'elzr/vim-json'
-Plug 'morhetz/gruvbox'
-Plug 'mhinz/vim-startify'
-Plug 'lervag/vimtex'
-Plug 'metakirby5/codi.vim'
-Plug 'klen/python-mode'
-Plug 'python.vim'
-Plug 'python_match.vim'
-Plug 'davidhalter/jedi-vim'
+if filereadable(expand("~/.vimrc.mappings"))
+  source ~/.vimrc.bundles
+endif
 
-call plug#end()
+filetype plugin indent on
 
-" Needed for Syntax Highlighting and stuff
-set grepprg=grep\ -nH\ $*
-" }}}
+augroup vimrcEx
+  autocmd!
 
-"{{{Misc Settings
-set nocompatible
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+augroup END
+
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  if !exists(":Ag")
+    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+    nnoremap \ :Ag<SPACE>
+  endif
+endif
+
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
+" Numbers
+set number
+set relativenumber
+set numberwidth=5
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
 
 set wildignore+=*/build*,*.o,*.obj,*.aux,.git,.svn
 
-" This shows what you are typing as a command.  I love this!
+" This shows what you are typing as a command
 set showcmd
 
 " Folding Stuffs
@@ -107,32 +129,19 @@ endif
 " Enable mouse support in console
 set mouse=a
 
-" Got backspace?
-set backspace=2
-
-" Line Numbers PWN!
-set relativenumber
-set number
-
-" Ignoring case is a fun trick
 set ignorecase
 
-" And so is Artificial Intellegence!
 set smartcase
 
-" Incremental searching is sexy
 set incsearch
 
-" Highlight things that we find with the search
 set hlsearch
 
-" Since I use linux, I want this
 let g:clipbrdDefaultReg = '+'
+set clipboard=unnamed
 
-" Open a new file without writing the buffers first
 set hidden
 
-" Set off the other paren
 highlight MatchParen ctermbg=4
 
 set showmatch
@@ -141,87 +150,10 @@ set showmode
 
 " syntax coloring lines that are too long just slows down the world
 set synmaxcol=200
-" }}}
-
-" {{{ paste settings
-set clipboard=unnamed
-" }}}
-
-"{{{ Auto Commands
 
 " Close preview scratch window after autocomplete selection
-   autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-   autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-   "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o formatoptions-=t
-
-   augroup VimReload
-     autocmd!
-     autocmd BufWritePost .vimrc source $MYVIMRC
-   augroup END
-"}}}
-
-"{{{Mappings
-
-" make sure yankstack mappings don't cause any problems
-call yankstack#setup()
-
-
-" Change the mapleader from \ to ,
-let mapleader=","
-
-" Paste Mode!  Dang! <F10>
-nnoremap <silent> <F10> :call Paste_on_off()<CR>
-set pastetoggle=<F10>
-
-" Up and down are more logical with g..
-nnoremap <silent> k gk
-nnoremap <silent> j gj
-inoremap <silent> <Up> <Esc>gka
-inoremap <silent> <Down> <Esc>gja
-
-" Create Blank Newlines and stay in Normal mode
-nnoremap <silent> zj o<Esc>
-nnoremap <silent> zk O<Esc>
-
-imap fd <Esc>
-
-" Jump to tag
-"nnoremap t <C-]>
-
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-map N Nzz
-map n nzz
-
-" Easy window navigation
-"map <C-h> <C-w>h
-"map <C-j> <C-w>j
-"map <C-k> <C-w>k
-"map <C-l> <C-w>l
-
-" Clear highlighted searches
-nmap <silent> ,/ :nohlsearch<CR>
-
-nmap <silent> ,r :redraw!<CR>
-
-" repeat operator in visual mode
-vnoremap . :normal .<CR>
-
-" Keep selection after indent
-vnoremap > ><CR>gv
-vnoremap < <<CR>gv
-
-nnoremap <Space><Tab> :b#<CR>
-"}}}
-
-"{{{ Look and Feel
-set textwidth=80
-set colorcolumn=-0
-
-" highlight whitespaces
-"set list
-"set listchars=tab:>.,trail:.,extends:#,nbsp:.
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set t_Co=256
 colorscheme gruvbox
@@ -232,354 +164,6 @@ set laststatus=2
 set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
 
 set encoding=utf-8
-"}}}
 
-"{{{ Paste Toggle
-let paste_mode = 0 " 0 = normal, 1 = paste
-
-func! Paste_on_off()
-   if g:paste_mode == 0
-      set paste
-      let g:paste_mode = 1
-   else
-      set nopaste
-      let g:paste_mode = 0
-   endif
-   return
-endfunc
-"}}}
-
-"{{{ GLSL Syntax
-command SetGLSLFileType call SetGLSLFileType()
-function SetGLSLFileType()
-  for item in getline(1,10)
-    if item =~ "#version 400"
-      execute ':set filetype=glsl400'
-      break
-    endif
-    if item =~ "#version 330"
-      execute ':set filetype=glsl330'
-      break
-    endif
-  endfor
-endfunction
-au BufNewFile,BufRead *.frag,*.vert,*.geom,*.fp,*.vp,*.glsl SetGLSLFileType
-"}}}
-
-"{{{ Tagbar
-let g:tagbar_autofocus = 1
-let g:tagbar_autoshowtag = 1
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_tex = {
-      \ 'ctagstype' : 'latex',
-      \ 'kinds'     : [
-      \ 's:sections',
-      \ 'g:graphics:0:0',
-      \ 'l:labels',
-      \ 'r:refs:1:0',
-      \ 'p:pagerefs:1:0'
-      \ ],
-      \ 'sort'    : 0,
-      \ 'deffile' : expand('~/latex.cnf')
-      \ }
-"}}}
-
-"{{{ nerdtree
-let NERDTreeHijackNetrw=1
-nmap <F9> :NERDTreeTabsToggle <CR>
-let g:nerdtree_tabs_open_on_gui_startup=0
-"}}}
-
-"{{{ tags
 " search until we find the tags file
 set tags=./tags;
-"}}}
-
-"{{{ YouCompleteMe
-let g:ycm_confirm_extra_conf = 0
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_always_populate_location_list = 1
-"let g:ycm_server_use_vim_stdout = 1
-"let g:ycm_server_log_level = 'debug'
-let g:ycm_show_diagnostics_ui=1
-let g:ycm_filetype_blacklist = {
-        \ 'tagbar' : 1,
-        \ 'qf' : 1,
-        \ 'notes' : 1,
-        \ 'markdown' : 1,
-        \ 'unite' : 1,
-        \ 'vimwiki' : 1,
-        \ 'pandoc' : 1,
-        \ 'mail' : 1
-        \}
-nnoremap <leader>g :YcmCompleter GoTo<CR>
-"}}}
-
-"{{{ PyMode
-" Keys:
-" <leader>px    Execute python code
-" <leader>pK    Show python docs
-"? g     Rope goto definition
-"? d     Rope show documentation
-"? f     Rope find occurrences
-" <leader>pb     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[    Jump on previous class or function (normal, visual, operator modes)
-" ]]    Jump on next class or function (normal, visual, operator modes)
-" [M    Jump on previous class or method (normal, visual, operator modes)
-" ]M    Jump on next class or method (normal, visual, operator modes)
-"
-if !has('python')
-  let g:pymode = 0
-endif
-
-" Disable rope
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_autoimport = 0
-
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = '<leader>pK'
-
-" Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes"
-let g:pymode_lint_checkers = ["pyflakes", "pep8"]
-" Ignore some lint warnings (Eg "E501,W"
-" would ignore E501 and all W erros.
-let g:pymode_lint_ignore = "E501"
-let g:pymode_lint_sort = ['E', 'C', 'I', 'W']
-
-" Place error signs
-let g:pymode_lint_signs = 1
-let g:pymode_lint_todo_symbol = 'WW'
-let g:pymode_lint_comment_symbol = 'CC'
-let g:pymode_lint_visual_symbol = 'RR'
-let g:pymode_lint_error_symbol = 'EE'
-let g:pymode_lint_info_symbol = 'II'
-let g:pymode_lint_pyflakes_symbol = 'FF'
-
-" Auto check on save
-let g:pymode_lint_write = 1
-let g:pymode_lint_on_write = 1
-
-" Support virtualenv
-let g:pymode_virtualenv = 1
-
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>pb'
-
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-let g:pymode_syntax_string_format = g:pymode_syntax_all
-let g:pymode_syntax_string_templates = g:pymode_syntax_all
-let g:pymode_syntax_doctests = g:pymode_syntax_all
-
-" Don't autofold code
-let g:pymode_folding = 0
-
-" Running python code
-let g:pymode_run = 1
-let g:pymode_run_bind = '<leader>px'
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>pb'
-
-" Misc
-let g:pymode_utils_whitespaces = 0
-let g:pymode_options = 0
-let g:pymode_trim_whitespaces = 1
-
-"}}}
-
-"{{{ jedi-vim
-"let g:jedi#auto_initialization = 1
-"let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
-"let g:jedi#smart_auto_mappings = 0
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#completions_command = ""
-"let g:jedi#show_call_signatures = "1"
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 0
-
-let g:jedi#auto_close_doc = 1
-let g:jedi#goto_assignments_command = "<leader>pa"
-let g:jedi#goto_definitions_command = "<leader>pd"
-let g:jedi#documentation_command = "<leader>pk"
-let g:jedi#usages_command = "<leader>pu"
-let g:jedi#completions_command = "<leader>pc"
-let g:jedi#rename_command = "<leader>pr"
-
-call jedi#configure_call_signatures()
-let g:jedi#show_call_signatures = "1"
-let g:jedi#show_call_signatures_delay = 0
-"}}}
-
-"{{{ FSwitch
-nmap <silent> <leader>o :FSHere<CR>
-"}}}
-
-" {{{ airline
-let g:airline_theme='gruvbox'
-let g:airline_exclude_preview=1
-let g:airline#extensions#tabline#enabled=1
-" }}}
-
-"{{{ Camel Case Motion
-map <Leader> w <Plug>CamelCaseMotion_w
-map <Leader> b <Plug>CamelCaseMotion_b
-map <Leader> e <Plug>CamelCaseMotion_e
-"}}}
-
-"{{{ Gundo
-nnoremap <F5> :GundoToggle<CR>
-"}}}
-
-"{{{ ctrlp
-"let g:ctrlp_working_path_mode = 0
-"let g:ctrlp_max_height = 40
-"let g:ctrlp_follow_symlinks = 1
-"let g:ctrlp_extensions = ['funky', 'line']
-"let g:ctrlp_map = '<space>p'
-"nmap <space>l :CtrlPLine<cr>
-"nmap <space>k :CtrlPFunky<cr>
-"nmap <space>m :CtrlPTag<cr>
-"nmap <space>b :CtrlPBuffer<cr>
-"nnoremap <space>t :CtrlPtjump<cr>
-"vnoremap <space>t :CtrlPtjumpVisual<cr>
-"}}}
-
-"{{{ fzf
-nmap <space>p :Files<cr>
-nmap <space>l :BLines<cr>
-nmap <space>k :BTags<cr>
-nmap <space>m :Tags<cr>
-nmap <space>b :Buffers<cr>
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-"}}}
-
-"{{{ ag
-nmap <space>a :Ag <c-r><c-w>
-"}}}
-
-"{{{ YankStack
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
-"}}}
-
-"{{{ Crunch
-map <silent> <space>cl <plug>CrunchEvalLine
-map <silent> <space>cb <plug>CrunchEvalBlock
-"}}}
-
-"{{{ LiteDFM
-nnoremap <space>z :LiteDFMToggle<CR>i<Esc>`^
-"}}}
-
-"{{{ make options
-"set makeprg=make\ -C\ /local/lim/workspace/machine_learning/build/release/\ -j50
-"}}}
-
-"{{{ vim notes
-let g:notes_directories = ['~/Documents/Notes']
-"}}}
-
-"{{{ vim-tags
-let g:vim_tags_use_vim_dispatch = 1
-"}}}
-
-"{{{ gtags
-nnoremap t :Gtags<CR><CR>
-nnoremap <C-t> :Gtags -r<CR><CR>
-nnoremap <F11> :cp<CR>
-nnoremap <F12> :cn<CR>
-"}}}
-
-"{{{ incsearch
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map n <Plug>(incsearch-nohl-n)
-map N <Plug>(incsearch-nohl-N)
-map * <Plug>(incsearch-nohl-*)
-map # <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-"}}}
-
-"{{{ FastFold
-"set foldmethod=syntax
-"let g:fastfold_savehook = 0
-"}}}
-
-"{{{ tex
-let g:tex_conceal = ""
-"}}}
-
-"{{{ easymotion
-"nmap s <Plug>(easymotion-s2)
-"nmap t <Plug>(easymotion-t2)
-"nmap s <Plug>(easymotion-s)
-"nmap t <Plug>(easymotion-bd-tl)
-"map  / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
-"map  n <Plug>(easymotion-next)
-"map  N <Plug>(easymotion-prev)
-"map <Leader>l <Plug>(easymotion-lineforward)
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-"map <Leader>h <Plug>(easymotion-linebackward)
-"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-"let g:EasyMotion_smartcase = 1
-"}}}
-
-"{{{ sneak
-let g:sneak#streak = 1
-nmap s <Plug>(SneakStreak)
-nmap S <Plug>(SneakStreakBackward)
-"}}}
-
-"{{{ local vimrc
-let g:localvimrc_sandbox = 0
-let g:localvimrc_ask = 0
-"}}}
-
-"{{{ incsearch fuzzy
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
-"}}}
-
-"{{{ syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_quiet_messages = { "type": "style" }
-let g:syntastic_python_checkers = ['pyflakes', 'python']
-"}}}
-
-"{{{ vim-json
-let g:vim_json_syntax_conceal = 0
-"}}}
-
-"{{{ conque
-let g:ConqueGdb_Leader = ',g'
-"}}}
