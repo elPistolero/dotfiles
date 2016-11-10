@@ -10,6 +10,10 @@ nnoremap <silent> zk O<Esc>
 
 imap fd <Esc>
 
+" tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz

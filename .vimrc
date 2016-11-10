@@ -21,14 +21,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-if filereadable(expand("~/.vimrc.mappings"))
-  source ~/.vimrc.bundles
-endif
-
 filetype plugin indent on
 
 augroup vimrcEx
@@ -156,7 +148,6 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set t_Co=256
-colorscheme gruvbox
 set background=dark
 
 "Status line gnarliness
@@ -167,3 +158,21 @@ set encoding=utf-8
 
 " search until we find the tags file
 set tags=./tags;
+
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+if filereadable(expand("~/.vimrc.mappings"))
+  source ~/.vimrc.mappings
+endif
