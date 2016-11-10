@@ -1,0 +1,79 @@
+" Up and down are more logical with g..
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+inoremap <silent> <Up> <Esc>gka
+inoremap <silent> <Down> <Esc>gja
+
+" Create Blank Newlines and stay in Normal mode
+nnoremap <silent> zj o<Esc>
+nnoremap <silent> zk O<Esc>
+
+imap fd <Esc>
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
+
+" Clear highlighted searches
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+nmap <silent> <Leader>r :redraw!<CR>
+
+" repeat operator in visual mode
+vnoremap . :normal .<CR>
+
+" Keep selection after indent
+vnoremap > ><CR>gv
+vnoremap < <<CR>gv
+
+nnoremap <Leader><Tab> :b#<CR>
+
+"Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+"nerdtree
+nmap <F9> :NERDTreeTabsToggle <CR>
+
+"FSwitch
+nmap <silent> <leader>o :FSHere<CR>
+
+"Camel Case Motion
+map <Leader> w <Plug>CamelCaseMotion_w
+map <Leader> b <Plug>CamelCaseMotion_b
+map <Leader> e <Plug>CamelCaseMotion_e
+
+"Gundo
+nnoremap <F5> :GundoToggle<CR>
+
+"fzf
+nmap <Leader>p :Files<cr>
+nmap <Leader>l :BLines<cr>
+nmap <Leader>k :BTags<cr>
+nmap <Leader>m :Tags<cr>
+nmap <Leader>b :Buffers<cr>
+
+"ag
+nmap <space>a :Ag <c-r><c-w>
+
+"gtags
+nnoremap t :Gtags<CR><CR>
+nnoremap <C-t> :Gtags -r<CR><CR>
+nnoremap <F11> :cp<CR>
+nnoremap <F12> :cn<CR>
+
+" incsearch
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n <Plug>(incsearch-nohl-n)
+map N <Plug>(incsearch-nohl-N)
+map * <Plug>(incsearch-nohl-*)
+map # <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+"incsearch fuzzy
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)

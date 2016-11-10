@@ -1,0 +1,76 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source '~/.vimrc'
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" bundles on github
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-fugitive'
+Plug 'bkad/CamelCaseMotion'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'sjl/gundo.vim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'wellle/targets.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/gtags.vim'
+Plug 'stephpy/vim-yaml'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'elzr/vim-json'
+Plug 'morhetz/gruvbox'
+Plug 'lervag/vimtex'
+
+call plug#end()
+
+"Tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_autoshowtag = 1
+let g:tagbar_type_tex = {
+      \ 'ctagstype' : 'latex',
+      \ 'kinds'     : [
+      \ 's:sections',
+      \ 'g:graphics:0:0',
+      \ 'l:labels',
+      \ 'r:refs:1:0',
+      \ 'p:pagerefs:1:0'
+      \ ],
+      \ 'sort'    : 0,
+      \ 'deffile' : expand('~/latex.cnf')
+      \ }
+
+"nerdtree
+let NERDTreeHijackNetrw=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+" airline
+let g:airline_theme='gruvbox'
+let g:airline_exclude_preview=1
+let g:airline#extensions#tabline#enabled=1
+
+"fzf
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+
+" incsearch
+let g:incsearch#auto_nohlsearch = 1
+
+"vim-json
+let g:vim_json_syntax_conceal = 0
