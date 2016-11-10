@@ -38,8 +38,19 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-jedi'
+endif
+if ! has('nvim') && has('lua')
+  Plug 'davidhalter/jedi-vim'
+  Plug 'Shougo/neocomplete'
+endif
 
 call plug#end()
+
+" gruvbox
+colorscheme gruvbox
 
 "Tagbar
 let g:tagbar_autofocus = 1
@@ -74,3 +85,27 @@ let g:incsearch#auto_nohlsearch = 1
 
 "vim-json
 let g:vim_json_syntax_conceal = 0
+
+"deoplete
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+  endif
+endif
+
+"neocomplete
+if ! has('nvim') && has('lua')
+  let g:neocomplete#enable_at_startup = 1
+  " Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:jedi#completions_enabled = 0
+  let g:jedi#auto_vim_configuration = 0
+  let g:jedi#smart_auto_mappings = 0
+  let g:neocomplete#force_omni_input_patterns.python =
+        \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+  " alternative pattern: '\h\w*\|[^. \t]\.\w*'s = {}
+endif
