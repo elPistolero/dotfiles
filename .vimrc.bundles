@@ -38,6 +38,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
+Plug 'jmcantrell/vim-virtualenv'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
