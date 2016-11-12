@@ -39,12 +39,12 @@ Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'davidhalter/jedi-vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
 endif
 if ! has('nvim') && has('lua')
-  Plug 'davidhalter/jedi-vim'
   Plug 'Shougo/neocomplete'
 endif
 
@@ -89,6 +89,7 @@ let g:vim_json_syntax_conceal = 0
 
 "deoplete
 if has('nvim')
+  let g:jedi#completions_enabled = 0
   let g:deoplete#enable_at_startup = 1
   if !exists('g:deoplete#omni#input_patterns')
     let g:deoplete#omni#input_patterns = {}
