@@ -40,6 +40,7 @@ Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'davidhalter/jedi-vim'
+Plug 'neomake/neomake'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
@@ -111,3 +112,6 @@ if ! has('nvim') && has('lua')
         \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
   " alternative pattern: '\h\w*\|[^. \t]\.\w*'s = {}
 endif
+
+"neomake
+autocmd! BufWritePost * Neomake
