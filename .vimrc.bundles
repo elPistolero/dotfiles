@@ -42,6 +42,7 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'davidhalter/jedi-vim'
 Plug 'neomake/neomake'
 Plug 'milkypostman/vim-togglelist'
+Plug 'hynek/vim-python-pep8-indent'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
