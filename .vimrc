@@ -67,8 +67,8 @@ if executable('ag')
   endif
 endif
 
-" Make it obvious where 80 characters is
-set textwidth=80
+" Make it obvious where 79 characters is
+set textwidth=79
 set colorcolumn=+1
 
 " Numbers
