@@ -56,15 +56,14 @@ nmap <Leader>l :BLines<cr>
 nmap <Leader>k :BTags<cr>
 nmap <Leader>m :Tags<cr>
 nmap <Leader>b :Buffers<cr>
+nnoremap <Leader>t :Tags <c-r><c-w><cr>
 
 "ag
 nmap <space>a :Ag <c-r><c-w>
 
-"gtags
-nnoremap t :Gtags<CR><CR>
-nnoremap <C-t> :Gtags -r<CR><CR>
-nnoremap <F11> :cp<CR>
-nnoremap <F12> :cn<CR>
+"ctags
+nnoremap t g<c-]>
+vnoremap t g<c-]>
 
 " incsearch
 map / <Plug>(incsearch-forward)
