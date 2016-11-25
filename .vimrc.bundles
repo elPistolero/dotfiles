@@ -42,6 +42,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'neomake/neomake'
 Plug 'milkypostman/vim-togglelist'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'ludovicchabant/vim-gutentags'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
@@ -116,3 +117,9 @@ endif
 
 "neomake
 autocmd! BufWritePost * Neomake
+
+"gutentags
+" don't use defaults like .git because of subprojects
+let g:gutentags_add_default_project_roots = 0
+" use existing tags file for root detection
+let g:gutentags_project_root = ['tags']
