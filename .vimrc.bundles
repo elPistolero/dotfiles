@@ -43,6 +43,7 @@ Plug 'neomake/neomake'
 Plug 'milkypostman/vim-togglelist'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'pseewald/vim-anyfold'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
@@ -123,3 +124,8 @@ autocmd! BufWritePost * Neomake
 let g:gutentags_add_default_project_roots = 0
 " use existing tags file for root detection
 let g:gutentags_project_root = ['tags']
+
+"vim-anyfold
+let anyfold_activate=1
+let anyfold_fold_comments=1
+set foldlevel=4
