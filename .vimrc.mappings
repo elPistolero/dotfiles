@@ -63,7 +63,6 @@ nmap <space>a :Ag <c-r><c-w>
 
 "ctags
 nnoremap t g<c-]>
-vnoremap t g<c-]>
 
 " incsearch
 map / <Plug>(incsearch-forward)
