@@ -8,7 +8,7 @@ inoremap <silent> <Down> <Esc>gja
 nnoremap <silent> zj o<Esc>
 nnoremap <silent> zk O<Esc>
 
-imap fd <Esc>
+inoremap <C-c> <Esc>
 
 " tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
