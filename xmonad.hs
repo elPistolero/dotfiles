@@ -72,6 +72,7 @@ myManageHook = composeAll
     [ resource  =? "desktop_window" --> doIgnore
     , className =? "Galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
+    , className =? "Pidgin"           --> doFloat
     , stringProperty "WM_WINDOW_ROLE" =? "pop-up" --> doFloat
     , resource  =? "gpicview"       --> doFloat
     , className =? "MPlayer"        --> doFloat
