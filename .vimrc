@@ -3,6 +3,7 @@ if &compatible
 endif
 set shell=/bin/sh
 let mapleader = " "
+let maplocalleader = ","
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
