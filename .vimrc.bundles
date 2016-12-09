@@ -150,3 +150,8 @@ let g:gutentags_project_root = ['tags']
 let anyfold_activate=1
 let anyfold_fold_comments=1
 set foldlevel=4
+
+"vim-togglelist
+let g:toggle_list_no_mappings = 1
+nmap <script> <silent> ,l :call ToggleLocationList()<CR>
+nmap <script> <silent> ,q :call ToggleQuickfixList()<CR>
