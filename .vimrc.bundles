@@ -158,3 +158,8 @@ set foldlevel=4
 let g:toggle_list_no_mappings = 1
 nmap <script> <silent> ,l :call ToggleLocationList()<CR>
 nmap <script> <silent> ,q :call ToggleQuickfixList()<CR>
+
+"vimtex
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
