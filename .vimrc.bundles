@@ -45,6 +45,7 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'pseewald/vim-anyfold'
 Plug 'easymotion/vim-easymotion'
+Plug 'michaeljsmith/vim-indent-object'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
