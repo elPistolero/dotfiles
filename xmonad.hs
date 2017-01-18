@@ -168,7 +168,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- Mute volume.
   , ((0, xF86XK_AudioMute),
-     spawn "amixer -q -D pulse set Master toggle")
+     spawn "amixer -q -D pulse set Master Playback Switch toggle")
 
   -- Decrease volume.
   , ((0, xF86XK_AudioLowerVolume),
