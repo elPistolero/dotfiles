@@ -39,7 +39,9 @@ Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'davidhalter/jedi-vim'
-Plug 'w0rp/ale'
+if has('nvim') || (v:version >= 800)
+  Plug 'w0rp/ale'
+endif
 Plug 'Chiel92/vim-autoformat'
 Plug 'milkypostman/vim-togglelist'
 Plug 'hynek/vim-python-pep8-indent'
