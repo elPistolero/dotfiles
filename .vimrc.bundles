@@ -39,7 +39,8 @@ Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'davidhalter/jedi-vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+Plug 'Chiel92/vim-autoformat'
 Plug 'milkypostman/vim-togglelist'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'ludovicchabant/vim-gutentags'
@@ -141,9 +142,6 @@ if ! has('nvim') && has('lua')
         \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
   " alternative pattern: '\h\w*\|[^. \t]\.\w*'s = {}
 endif
-
-"neomake
-autocmd! BufWritePost * Neomake
 
 "gutentags
 " don't use defaults like .git because of subprojects
