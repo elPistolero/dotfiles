@@ -165,3 +165,14 @@ nmap <script> <silent> ,q :call ToggleQuickfixList()<CR>
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
+
+"ale
+if has('nvim') || (v:version >= 800)
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
+  let g:ale_linters = {
+        \ 'python': ['pylint'],
+  \}
+endif
