@@ -173,6 +173,6 @@ if has('nvim') || (v:version >= 800)
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
   let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
   let g:ale_linters = {
-        \ 'python': ['pylint'],
+        \ 'python': ['flake8'],
   \}
 endif
