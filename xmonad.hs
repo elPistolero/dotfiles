@@ -113,18 +113,18 @@ myFocusedBorderColor = "#6A555C"
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
     activeBorderColor = "#6A555C",
-    activeTextColor = "#CEFFAC",
-    activeColor = "#000000",
+    activeTextColor = "#458588",
+    activeColor = "#282828",
     inactiveBorderColor = "#404752",
-    inactiveTextColor = "#EEEEEE",
-    inactiveColor = "#000000"
+    inactiveTextColor = "#ebdbb2",
+    inactiveColor = "#282828"
 }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
+xmobarTitleColor = "#98971a"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
+xmobarCurrentWorkspaceColor = "#458588"
 
 -- Width of the window border in pixels.
 myBorderWidth = 3
