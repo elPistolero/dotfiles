@@ -107,15 +107,15 @@ myLayout = minimize $ avoidStruts (
 -- Colors and borders
 -- Currently based on the ir_black theme.
 --
-myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#ffb6b0"
+myNormalBorderColor  = "#404752"
+myFocusedBorderColor = "#6A555C"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
-    activeBorderColor = "#7C7C7C",
+    activeBorderColor = "#6A555C",
     activeTextColor = "#CEFFAC",
     activeColor = "#000000",
-    inactiveBorderColor = "#7C7C7C",
+    inactiveBorderColor = "#404752",
     inactiveTextColor = "#EEEEEE",
     inactiveColor = "#000000"
 }
@@ -127,7 +127,7 @@ xmobarTitleColor = "#FFB6B0"
 xmobarCurrentWorkspaceColor = "#CEFFAC"
 
 -- Width of the window border in pixels.
-myBorderWidth = 1
+myBorderWidth = 5
 
 
 ------------------------------------------------------------------------
