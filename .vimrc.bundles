@@ -156,7 +156,9 @@ let g:gutentags_project_root = ['tags']
 "vim-anyfold
 let anyfold_activate=1
 let anyfold_fold_comments=1
-set foldlevel=4
+set foldlevel=1
+set nofoldenable
+set foldnestmax=10
 
 "vim-togglelist
 let g:toggle_list_no_mappings = 1
