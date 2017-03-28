@@ -103,7 +103,6 @@ set foldcolumn=0
 
 " Who doesn't like autoindent?
 set autoindent
-set smartindent
 set cino+=(0
 
 set autoread
