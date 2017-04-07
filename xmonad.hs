@@ -52,7 +52,7 @@ myLauncher = "dmenu_run"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:dev","2:web","3:email"] ++ map show [4..9]
+myWorkspaces = map show [1..9]
 
 
 ------------------------------------------------------------------------
@@ -77,8 +77,8 @@ myManageHook = composeAll
     , stringProperty "WM_WINDOW_ROLE" =? "pop-up" --> doFloat
     , resource  =? "gpicview"       --> doFloat
     , className =? "MPlayer"        --> doFloat
-    , className =? "Icedove"        --> doShift "3:email"
-    , className =? "Thunderbird"    --> doShift "3:email"
+    , className =? "Thunderbird"        --> doShift "3"
+    , className =? "OpenFlipper"    --> doShift "2"
     , className =? "stalonetray"    --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
