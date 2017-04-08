@@ -9,6 +9,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.Named
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
@@ -92,14 +93,11 @@ myManageHook = composeAll
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = minimize $ avoidStruts (
-    (spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)) |||
-    {-(spacing 10 $ Tall 1 (3/100) (1/2)) |||-}
-    tabbed shrinkText tabConfig |||
-    {-(spacing 10 $ Mirror (Tall 1 (3/100) (1/2))) |||-}
-    Full
-    ) |||
-    noBorders (fullscreenFull Full)
+myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen
+myTile = named "[G]" $ minimize $ avoidStruts((spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)))
+myTabbed = named "[T]" $ minimize $ avoidStruts(tabbed shrinkText tabConfig)
+myFull = named "[F]" $ minimize $ avoidStruts(Full)
+myFullScreen = noBorders (fullscreenFull Full)
 
 
 ------------------------------------------------------------------------
