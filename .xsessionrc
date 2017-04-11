@@ -1,0 +1,18 @@
+#!/bin/bash
+
+/home/lim/bin/trayer/usr/bin/trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+     --expand true --width 5 --transparent true --alpha 1 --tint 0x282828 --height 18 &
+
+setxkbmap -layout de -variant nodeadkeys -option 'grp:alt_shift_toggle' &
+
+xscreensaver -no-splash &
+
+feh --bg-scale /home/lim/Pictures/color_poly.jpg &
+
+mkdir -p /tmp/coredumps/1065/
+
+export LANG=en_US.UTF-8
+export LC_MEASUREMENT=de_DE.UTF-8
+export LC_TIME=de_DE.UTF-8
+export LC_PAPER=de_DE.UTF-8
+wmname LG3D
