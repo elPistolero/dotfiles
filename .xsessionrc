@@ -7,6 +7,8 @@ xscreensaver -no-splash &
 
 nm-applet &
 
+pasystray -n &
+
 feh --bg-scale $HOME/Pictures/color_poly.jpg &
 
 mkdir -p /tmp/coredumps/1065/
