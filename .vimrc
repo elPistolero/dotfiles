@@ -174,8 +174,12 @@ augroup end
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
+else
+  echom "vimrc.bundes not found"
 endif
 
 if filereadable(expand("~/.vimrc.mappings"))
   source ~/.vimrc.mappings
+else
+  echom "vimrc.mappings not found"
 endif
