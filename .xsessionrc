@@ -11,6 +11,8 @@ pasystray -n &
 
 feh --bg-scale $HOME/Pictures/color_poly.jpg &
 
+synclient TapButton1=1 TapButton2=3 TapButton3=2
+
 mkdir -p /tmp/coredumps/1065/
 
 export LANG=en_US.UTF-8
