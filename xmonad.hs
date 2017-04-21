@@ -78,6 +78,7 @@ myManageHook = composeAll
     , resource  =? "gpicview"       --> doFloat
     , className =? "MPlayer"        --> doFloat
     , className =? "Icedove"        --> doShift "3"
+    , className =? "Thunderbird"    --> doShift "3"
     , className =? "OpenFlipper"    --> doShift "2"
     , className =? "stalonetray"    --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
