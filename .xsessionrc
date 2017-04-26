@@ -11,7 +11,7 @@ pasystray -n &
 
 feh --bg-scale $HOME/Pictures/color_poly.jpg &
 
-synclient TapButton1=1 TapButton2=3 TapButton3=2
+synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1
 
 mkdir -p /tmp/coredumps/1065/
 
