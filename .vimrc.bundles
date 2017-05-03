@@ -123,7 +123,7 @@ if has('nvim') || (v:version >= 800)
   let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
   let g:ale_python_flake8_args = "--ignore=E231,E226,E501"
   let g:ale_linters = {
-        \ 'python': ['flake8'],
+        \ 'python': ['flake8'], 'cpp': [], 'c': []
   \}
 endif
 
