@@ -38,7 +38,6 @@ Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'davidhalter/jedi-vim'
 if has('nvim') || (v:version >= 800)
   Plug 'w0rp/ale'
 endif
