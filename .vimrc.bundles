@@ -128,3 +128,4 @@ endif
 
 " YCM
 let g:ycm_python_binary_path = 'python'
+nnoremap <leader>gg :YcmCompleter GoTo<CR>
