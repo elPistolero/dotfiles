@@ -50,6 +50,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sleuth'
+Plug 'vimwiki/vimwiki'
+Plug 'tbabej/taskwiki'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
 
 call plug#end()
@@ -129,3 +131,6 @@ endif
 " YCM
 let g:ycm_python_binary_path = 'python'
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
