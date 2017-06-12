@@ -126,7 +126,7 @@ endif
 " Enable mouse support in console
 set mouse=a
 
-set ignorecase
+set infercase
 
 set smartcase
 
