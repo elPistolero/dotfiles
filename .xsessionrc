@@ -10,6 +10,8 @@ xscreensaver -no-splash &
 
 feh --bg-scale /home/lim/Pictures/color_poly.jpg &
 
+owncloud &
+
 mkdir -p /tmp/coredumps/1065/
 
 export LANG=en_US.UTF-8
