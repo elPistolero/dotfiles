@@ -18,6 +18,8 @@ set autowrite     " Automatically :write before running commands
 set ttyfast
 set lazyredraw
 set nojoinspaces
+set breakindent
+set showbreak=>\
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
