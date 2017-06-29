@@ -83,7 +83,6 @@ set relativenumber
 set numberwidth=5
 
 " Open new split panes to right and bottom, which feels more natural
-set splitbelow
 set splitright
 
 " Autocomplete with dictionary words when spell check is on
