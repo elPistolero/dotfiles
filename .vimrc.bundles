@@ -132,6 +132,10 @@ endif
 " YCM
 let g:ycm_python_binary_path = 'python'
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
