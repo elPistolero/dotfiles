@@ -20,9 +20,11 @@ synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1
 owncloud &
 
 mkdir -p /tmp/coredumps/1065/
+mkdir -p /tmp/spotify/
 
 export LANG=en_US.UTF-8
 export LC_MEASUREMENT=de_DE.UTF-8
 export LC_TIME=de_DE.UTF-8
 export LC_PAPER=de_DE.UTF-8
+export EDITOR=nvim
 wmname LG3D
