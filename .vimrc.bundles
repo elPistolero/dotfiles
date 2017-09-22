@@ -22,8 +22,8 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'bkad/CamelCaseMotion'
 Plug 'derekwyatt/vim-fswitch'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'sjl/gundo.vim'
 Plug 'nelstrom/vim-visual-star-search'
@@ -81,9 +81,9 @@ let NERDTreeHijackNetrw=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " airline
-let g:airline_theme='gruvbox'
-let g:airline_exclude_preview=1
-let g:airline#extensions#tabline#enabled=1
+"let g:airline_theme='gruvbox'
+"let g:airline_exclude_preview=1
+"let g:airline#extensions#tabline#enabled=1
 
 "fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
