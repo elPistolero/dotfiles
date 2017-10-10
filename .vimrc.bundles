@@ -53,7 +53,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'vimwiki/vimwiki'
 Plug 'tbabej/taskwiki'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
-Plug 'python-rope/ropevim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
