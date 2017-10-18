@@ -1,7 +1,7 @@
 #!/bin/bash
 
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
-     --expand true --width 5 --transparent true --alpha 1 --tint 0x282828 --height 17 &
+     --expand true --width 5 --transparent true --alpha 255 --height 17 &
 
 setxkbmap -layout de -variant nodeadkeys -option 'grp:alt_shift_toggle' &
 
