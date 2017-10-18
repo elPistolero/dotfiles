@@ -29,21 +29,16 @@ Plug 'sjl/gundo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'wellle/targets.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'stephpy/vim-yaml'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'elzr/vim-json'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'jmcantrell/vim-virtualenv'
 if has('nvim') || (v:version >= 800)
   Plug 'w0rp/ale'
 endif
-Plug 'Chiel92/vim-autoformat'
 Plug 'milkypostman/vim-togglelist'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'pseewald/vim-anyfold'
 Plug 'easymotion/vim-easymotion'
@@ -54,6 +49,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'tbabej/taskwiki'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
