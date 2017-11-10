@@ -131,6 +131,8 @@ endif
 " YCM
 let g:ycm_python_binary_path = 'python'
 nnoremap <leader>gg :YcmCompleter GoTo<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap K :YcmCompleter GetDoc<CR>
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
