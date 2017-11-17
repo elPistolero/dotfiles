@@ -50,6 +50,7 @@ Plug 'tbabej/taskwiki'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
+Plug 'matze/vim-move'
 
 call plug#end()
 
