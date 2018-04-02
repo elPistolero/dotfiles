@@ -14,21 +14,16 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'bkad/CamelCaseMotion'
+Plug 'tpope/vim-sleuth'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'sjl/gundo.vim'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'wellle/targets.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -40,17 +35,8 @@ if has('nvim') || (v:version >= 800)
 endif
 Plug 'milkypostman/vim-togglelist'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'pseewald/vim-anyfold'
-Plug 'easymotion/vim-easymotion'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-sleuth'
-Plug 'vimwiki/vimwiki'
-Plug 'tbabej/taskwiki'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
-Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-Plug 'matze/vim-move'
 
 call plug#end()
 
@@ -88,21 +74,11 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 " incsearch
 let g:incsearch#auto_nohlsearch = 1
 
-"vim-json
-let g:vim_json_syntax_conceal = 0
-
 "gutentags
 " don't use defaults like .git because of subprojects
 let g:gutentags_add_default_project_roots = 0
 " use existing tags file for root detection
 let g:gutentags_project_root = ['tags']
-
-"vim-anyfold
-let anyfold_activate=1
-let anyfold_fold_comments=1
-set foldlevel=1
-set nofoldenable
-set foldnestmax=10
 
 "vim-togglelist
 let g:toggle_list_no_mappings = 1
@@ -141,6 +117,3 @@ if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-" vimwiki/vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]

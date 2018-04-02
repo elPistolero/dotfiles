@@ -1,5 +1,5 @@
 if &compatible
-	set nocompatible
+  set nocompatible
 endif
 set shell=/bin/sh
 let mapleader = " "
@@ -15,8 +15,6 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-set ttyfast
-"set lazyredraw
 set nojoinspaces
 set breakindent
 set showbreak=>\
@@ -59,9 +57,6 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Use one space, not two, after punctuation.
-set nojoinspaces
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -73,13 +68,12 @@ if executable('ag')
   endif
 endif
 
-" Make it obvious where 79 characters is
-set textwidth=79
+" Make it obvious where 80 characters is
+set textwidth=80
 set colorcolumn=+1
 
 " Numbers
 set number
-set relativenumber
 set numberwidth=5
 
 " Open new split panes to right and bottom, which feels more natural
@@ -93,28 +87,11 @@ set diffopt+=vertical
 
 set wildignore+=*/build*,*.o,*.obj,*.aux,.git,.svn
 
-" This shows what you are typing as a command
-set showcmd
-
-" Folding Stuffs
-set foldmethod=marker
-
-" avoid weird grey bar at the side
-set foldcolumn=0
-
 " Who doesn't like autoindent?
 set autoindent
 set cino+=(0
 
-set autoread
-
 " Spaces are better than a tab character
-set expandtab
-set smarttab
-
-" Who wants an 8 character tab?  Not me!
-set shiftwidth=2
-set softtabstop=2
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
@@ -125,24 +102,8 @@ endif
 " Enable mouse support in console
 set mouse=a
 
-set infercase
-
-set smartcase
-
-set incsearch
-
-set hlsearch
-
 let g:clipbrdDefaultReg = '+'
 set clipboard=unnamed
-
-set hidden
-
-highlight MatchParen ctermbg=4
-
-set showmatch
-
-set showmode
 
 " syntax coloring lines that are too long just slows down the world
 set synmaxcol=200
@@ -154,24 +115,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 set t_Co=256
 set background=dark
 
-"Status line gnarliness
-set laststatus=2
-set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
-
 set encoding=utf-8
 
 " search until we find the tags file
 set tags=./tags;
-
-" omnifuncs
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
