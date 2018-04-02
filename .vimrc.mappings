@@ -42,14 +42,6 @@ nmap <F9> :NERDTreeTabsToggle <CR>
 "FSwitch
 nmap <silent> <leader>o :FSHere<CR>
 
-"Camel Case Motion
-map <Leader> w <Plug>CamelCaseMotion_w
-map <Leader> b <Plug>CamelCaseMotion_b
-map <Leader> e <Plug>CamelCaseMotion_e
-
-"Gundo
-nnoremap <F5> :GundoToggle<CR>
-
 "fzf
 nmap <Leader>p :Files<cr>
 nmap <Leader>l :BLines<cr>
@@ -61,7 +53,7 @@ nnoremap <Leader>t :Tags <c-r><c-w><cr>
 "ag
 nmap <space>a :Ag <c-r><c-w>
 
-"ctags
+"tags
 nnoremap t g<c-]>
 
 " incsearch
