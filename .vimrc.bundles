@@ -102,7 +102,7 @@ if has('nvim') || (v:version >= 800)
   let g:ale_echo_msg_warning_str = 'W'
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
   let g:ale_python_pylint_options = "--init-hook='import sys; sys.path.append(\".\")'"
-  let g:ale_python_flake8_args = "--ignore=E231,E226,E501"
+  let g:ale_python_flake8_options = "--ignore=E231,E226,E501"
   let g:ale_linters = {
         \ 'python': ['flake8'], 'cpp': [], 'c': []
   \}
