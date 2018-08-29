@@ -37,11 +37,12 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Valloric/YouCompleteMe' ", { 'do': './install.py --clang-completer' }
 Plug 'sheerun/vim-polyglot'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
 " gruvbox
-colorscheme gruvbox
+colorscheme wal
 
 "Tagbar
 let g:tagbar_autofocus = 1

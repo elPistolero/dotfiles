@@ -13,7 +13,8 @@ nm-applet &
 
 pasystray -n &
 
-feh --bg-scale $HOME/Pictures/color_poly.jpg &
+#feh --bg-scale $HOME/Pictures/color_poly.jpg &
+#wal -i $HOME/Pictures/color_poly.jpg
 
 synclient TapButton1=1 TapButton2=3 TapButton3=2 HorizTwoFingerScroll=1
 
@@ -24,5 +25,6 @@ export LANG=en_US.UTF-8
 export LC_MEASUREMENT=de_DE.UTF-8
 export LC_TIME=de_DE.UTF-8
 export LC_PAPER=de_DE.UTF-8
-export EDITOR=nvim
+export EDITOR=vim
 wmname LG3D
+/home/isaak/.local/bin/wal -R
