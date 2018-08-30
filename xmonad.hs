@@ -25,6 +25,21 @@ import XMonad.Util.EZConfig(additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import System.IO
+import Data.List
+import System.Directory
+import System.Environment
+import System.Exit
+import System.IO
+
+getConfigFilePath f =
+  getHomeDirectory >>= \hd -> return $ hd ++ "/" ++ f
+
+getWalColors = do
+  filename <- getConfigFilePath ".cache/wal/colors"
+  contents <- readFile filename
+  let colors = lines contents
+  return (colors ++ (replicate (16 - length colors) "#000000"))
 
 
 ------------------------------------------------------------------------
@@ -345,15 +360,31 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+-- myStartupHook = return ()
 
 
 ------------------------------------------------------------------------
 -- Run xmonad with all the defaults we set up.
---
+
 main = do
+  colors <- getWalColors
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-  xmonad $ docks defaults {
+  xmonad $ docks defaultConfig {
+      -- simple stuff
+      terminal           = myTerminal,
+      focusFollowsMouse  = myFocusFollowsMouse,
+      borderWidth        = myBorderWidth,
+      modMask            = myModMask,
+      workspaces         = myWorkspaces,
+      normalBorderColor  = colors!!10,
+      focusedBorderColor = colors!!12,
+
+      -- key bindings
+      keys               = myKeys,
+      mouseBindings      = myMouseBindings,
+
+      -- hooks, layouts
+      layoutHook         = smartBorders $ myLayout,
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
@@ -373,22 +404,22 @@ main = do
 --
 -- No need to modify this.
 --
-defaults = defaultConfig {
-    -- simple stuff
-    terminal           = myTerminal,
-    focusFollowsMouse  = myFocusFollowsMouse,
-    borderWidth        = myBorderWidth,
-    modMask            = myModMask,
-    workspaces         = myWorkspaces,
-    normalBorderColor  = myNormalBorderColor,
-    focusedBorderColor = myFocusedBorderColor,
-
-    -- key bindings
-    keys               = myKeys,
-    mouseBindings      = myMouseBindings,
-
-    -- hooks, layouts
-    layoutHook         = smartBorders $ myLayout,
-    manageHook         = myManageHook,
-    startupHook        = myStartupHook
-}
+--defaults = defaultConfig {
+--    -- simple stuff
+--    terminal           = myTerminal,
+--    focusFollowsMouse  = myFocusFollowsMouse,
+--    borderWidth        = myBorderWidth,
+--    modMask            = myModMask,
+--    workspaces         = myWorkspaces,
+--    normalBorderColor  = myNormalBorderColor,
+--    focusedBorderColor = myFocusedBorderColor,
+--
+--    -- key bindings
+--    keys               = myKeys,
+--    mouseBindings      = myMouseBindings,
+--
+--    -- hooks, layouts
+--    layoutHook         = smartBorders $ myLayout,
+--    manageHook         = myManageHook,
+--    startupHook        = myStartupHook
+--}
