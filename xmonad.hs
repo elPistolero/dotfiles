@@ -109,35 +109,35 @@ myManageHook = composeAll
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen
-myTile = named "[G]" $ minimize $ avoidStruts((spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)))
-myTabbed = named "[T]" $ minimize $ avoidStruts(tabbed shrinkText tabConfig)
-myFull = named "[F]" $ minimize $ avoidStruts(Full)
-myFullScreen = noBorders (fullscreenFull Full)
+--myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen
+--myTile = named "[G]" $ minimize $ avoidStruts((spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)))
+--myTabbed = named "[T]" $ minimize $ avoidStruts(tabbed shrinkText tabConfig)
+--myFull = named "[F]" $ minimize $ avoidStruts(Full)
+--myFullScreen = noBorders (fullscreenFull Full)
 
 
 ------------------------------------------------------------------------
 -- Colors and borders
 -- Currently based on the ir_black theme.
 --
-myNormalBorderColor  = "#404752"
-myFocusedBorderColor = "#6A555C"
+--myNormalBorderColor  = "#404752"
+--myFocusedBorderColor = "#6A555C"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
-tabConfig = defaultTheme {
-    activeBorderColor = "#6A555C",
-    activeTextColor = "#458588",
-    activeColor = "#282828",
-    inactiveBorderColor = "#404752",
-    inactiveTextColor = "#ebdbb2",
-    inactiveColor = "#282828"
-}
+--tabConfig = defaultTheme {
+--    activeBorderColor = "#6A555C",
+--    activeTextColor = "#458588",
+--    activeColor = "#282828",
+--    inactiveBorderColor = "#404752",
+--    inactiveTextColor = "#ebdbb2",
+--    inactiveColor = "#282828"
+--}
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#98971a"
+--xmobarTitleColor = "#98971a"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#458588"
+--xmobarCurrentWorkspaceColor = "#458588"
 
 -- Width of the window border in pixels.
 myBorderWidth = 3
@@ -369,6 +369,25 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 main = do
   colors <- getWalColors
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+  let tabConfig = defaultTheme {
+      activeBorderColor = colors!!10,
+      activeTextColor = colors!!15,
+      activeColor = colors!!10,
+      inactiveBorderColor = colors!!12,
+      inactiveTextColor = colors!!12,
+      inactiveColor = colors!!12
+  }
+
+  -- Color of current window title in xmobar.
+  let xmobarTitleColor = colors!!15
+
+  -- Color of current workspace in xmobar.
+  let xmobarCurrentWorkspaceColor = colors!!15
+  let myTile = named "[G]" $ minimize $ avoidStruts((spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)))
+  let myTabbed = named "[T]" $ minimize $ avoidStruts(tabbed shrinkText tabConfig)
+  let myFull = named "[F]" $ minimize $ avoidStruts(Full)
+  let myFullScreen = noBorders (fullscreenFull Full)
+  let myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen
   xmonad $ docks defaultConfig {
       -- simple stuff
       terminal           = myTerminal,
@@ -382,6 +401,7 @@ main = do
       -- key bindings
       keys               = myKeys,
       mouseBindings      = myMouseBindings,
+
 
       -- hooks, layouts
       layoutHook         = smartBorders $ myLayout,
