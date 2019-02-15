@@ -14,7 +14,6 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
-import XMonad.Layout.Grid
 import XMonad.Layout.GridVariants
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
@@ -384,10 +383,11 @@ main = do
   -- Color of current workspace in xmobar.
   let xmobarCurrentWorkspaceColor = colors!!15
   let myTile = named "[G]" $ minimize $ avoidStruts((spacing 10 $ TallGrid 1 1 (1/2) (16/10) (3/100)))
+  let myGrid = named "[E]" $ minimize $ avoidStruts((spacing 10 $ Grid (16/9) ))
   let myTabbed = named "[T]" $ minimize $ avoidStruts(tabbed shrinkText tabConfig)
   let myFull = named "[F]" $ minimize $ avoidStruts(Full)
   let myFullScreen = noBorders (fullscreenFull Full)
-  let myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen
+  let myLayout = myTile ||| myTabbed ||| myFull ||| myFullScreen ||| myGrid
   xmonad $ docks defaultConfig {
       -- simple stuff
       terminal           = myTerminal,
